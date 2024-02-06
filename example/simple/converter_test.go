@@ -3,9 +3,9 @@ package simple_test
 import (
 	"testing"
 
-	"github.com/jmattheis/goverter/example/simple"
-	"github.com/jmattheis/goverter/example/simple/generated"
 	"github.com/stretchr/testify/require"
+	"github.com/summit-fi/goverter/example/simple"
+	"github.com/summit-fi/goverter/example/simple/generated"
 )
 
 func TestConverter(t *testing.T) {

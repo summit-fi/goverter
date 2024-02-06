@@ -3,7 +3,7 @@
 
 package generated
 
-import extendlocal "github.com/jmattheis/goverter/example/extend-local"
+import extendlocal "github.com/summit-fi/goverter/example/extend-local"
 
 type ConverterImpl struct{}
 

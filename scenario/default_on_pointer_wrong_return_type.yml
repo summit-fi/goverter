@@ -22,16 +22,16 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/jmattheis/goverter/execution.Converter).Convert(source *github.com/jmattheis/goverter/execution.Input) *github.com/jmattheis/goverter/execution.Output
+        func (github.com/summit-fi/goverter/execution.Converter).Convert(source *github.com/summit-fi/goverter/execution.Input) *github.com/summit-fi/goverter/execution.Output
 
-    | *github.com/jmattheis/goverter/execution.Input
+    | *github.com/summit-fi/goverter/execution.Input
     |
     source
     target
     |
-    | *github.com/jmattheis/goverter/execution.Output
+    | *github.com/summit-fi/goverter/execution.Output
 
     Error using method:
-        func github.com/jmattheis/goverter/execution.NewOutput() github.com/jmattheis/goverter/execution.Wrong
+        func github.com/summit-fi/goverter/execution.NewOutput() github.com/summit-fi/goverter/execution.Wrong
 
-    Method return type mismatches with target: github.com/jmattheis/goverter/execution.Wrong != github.com/jmattheis/goverter/execution.Output
+    Method return type mismatches with target: github.com/summit-fi/goverter/execution.Wrong != github.com/summit-fi/goverter/execution.Output

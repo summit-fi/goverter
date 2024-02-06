@@ -4,8 +4,9 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/jmattheis/goverter"
-	"github.com/jmattheis/goverter/config"
+	"github.com/summit-fi/goverter/config"
+
+	"github.com/summit-fi/goverter"
 )
 
 type Strings []string
@@ -96,7 +97,7 @@ OPTIONS:
 Examples:
   %s gen ./example/simple ./example/complex
   %s gen ./example/...
-  %s gen github.com/jmattheis/goverter/example/simple
+  %s gen github.com/summit-fi/goverter/example/simple
   %s gen -g 'ignoreMissing no' -g 'skipCopySameType' ./simple
 
 Documentation:

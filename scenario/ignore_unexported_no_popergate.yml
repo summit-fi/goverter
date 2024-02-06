@@ -23,20 +23,20 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/jmattheis/goverter/execution.Converter).Convert(source github.com/jmattheis/goverter/execution.Input) github.com/jmattheis/goverter/execution.Output
+        func (github.com/summit-fi/goverter/execution.Converter).Convert(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
 
-    | github.com/jmattheis/goverter/execution.Input
+    | github.com/summit-fi/goverter/execution.Input
     |
-    |      | github.com/jmattheis/goverter/execution.NestedInput
+    |      | github.com/summit-fi/goverter/execution.NestedInput
     |      |
     source.Nested.???
     target.Nested.internalState
     |      |      |
     |      |      | string
     |      |
-    |      | github.com/jmattheis/goverter/execution.NestedOutput
+    |      | github.com/summit-fi/goverter/execution.NestedOutput
     |
-    | github.com/jmattheis/goverter/execution.Output
+    | github.com/summit-fi/goverter/execution.Output
 
     Cannot set value for unexported field "internalState".
 

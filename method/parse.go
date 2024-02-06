@@ -5,7 +5,8 @@ import (
 	"go/types"
 
 	"github.com/dave/jennifer/jen"
-	"github.com/jmattheis/goverter/xtype"
+
+	"github.com/summit-fi/goverter/xtype"
 )
 
 type ParamType int

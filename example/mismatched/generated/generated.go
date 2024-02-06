@@ -3,7 +3,7 @@
 
 package generated
 
-import mismatched "github.com/jmattheis/goverter/example/mismatched"
+import mismatched "github.com/summit-fi/goverter/example/mismatched"
 
 type ConverterImpl struct{}
 

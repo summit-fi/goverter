@@ -3,7 +3,7 @@
 
 package generated
 
-import embedded "github.com/jmattheis/goverter/example/embedded"
+import embedded "github.com/summit-fi/goverter/example/embedded"
 
 type ToConverterImpl struct{}
 

@@ -5,7 +5,7 @@ package generated
 
 import (
 	"bytes"
-	constructor "github.com/jmattheis/goverter/example/constructor"
+	constructor "github.com/summit-fi/goverter/example/constructor"
 )
 
 type ConverterGlobalMethodImpl struct{}

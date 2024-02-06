@@ -10,6 +10,6 @@ input:
 error: |-
     error parsing 'goverter:' at
         @workdir/input.go:6:15
-        github.com/jmattheis/goverter/execution.Converter
+        github.com/summit-fi/goverter/execution.Converter
 
     missing setting key

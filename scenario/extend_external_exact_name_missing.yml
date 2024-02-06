@@ -9,6 +9,6 @@ input:
 error: |-
     error parsing 'goverter:extend' at
         @workdir/input.go:5:1
-        github.com/jmattheis/goverter/execution.Converter
+        github.com/summit-fi/goverter/execution.Converter
 
     "ParseSomething" does not exist in package "strconv"

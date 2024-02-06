@@ -9,7 +9,7 @@ input:
 error: |-
     error parsing 'goverter:extend' at
         @workdir/input.go:5:1
-        github.com/jmattheis/goverter/execution.Converter
+        github.com/summit-fi/goverter/execution.Converter
 
-    package github.com/jmattheis/goverter/execution does not have methods with names that match
+    package github.com/summit-fi/goverter/execution does not have methods with names that match
     the golang regexp pattern "HelloWorld.*" and a convert signature

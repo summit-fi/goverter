@@ -17,7 +17,7 @@ input:
 error: |-
     error parsing 'goverter:map' at
         @workdir/input.go:6:5
-        func (github.com/jmattheis/goverter/execution.Converter).Convert(source github.com/jmattheis/goverter/execution.Input) github.com/jmattheis/goverter/execution.Output
+        func (github.com/summit-fi/goverter/execution.Converter).Convert(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
 
     package path must not be empty in the custom method ":IntToString".
     See https://goverter.jmattheis.de/reference/extend

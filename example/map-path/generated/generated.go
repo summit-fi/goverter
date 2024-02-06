@@ -3,7 +3,7 @@
 
 package generated
 
-import mappath "github.com/jmattheis/goverter/example/map-path"
+import mappath "github.com/summit-fi/goverter/example/map-path"
 
 type ConverterImpl struct{}
 

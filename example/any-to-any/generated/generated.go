@@ -3,7 +3,7 @@
 
 package generated
 
-import anytoany "github.com/jmattheis/goverter/example/any-to-any"
+import anytoany "github.com/summit-fi/goverter/example/any-to-any"
 
 type ConverterImpl struct{}
 

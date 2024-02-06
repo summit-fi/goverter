@@ -3,7 +3,7 @@
 
 package generated
 
-import automap "github.com/jmattheis/goverter/example/auto-map"
+import automap "github.com/summit-fi/goverter/example/auto-map"
 
 type ConverterImpl struct{}
 

@@ -34,19 +34,19 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/jmattheis/goverter/execution.Converter).Convert(source github.com/jmattheis/goverter/execution.Input) github.com/jmattheis/goverter/execution.Output
+        func (github.com/summit-fi/goverter/execution.Converter).Convert(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
 
-    | github.com/jmattheis/goverter/execution.Input
+    | github.com/summit-fi/goverter/execution.Input
     |
-    |      | github.com/jmattheis/goverter/execution.Input2
+    |      | github.com/summit-fi/goverter/execution.Input2
     |      |
-    |      |           | []github.com/jmattheis/goverter/execution.Input3
+    |      |           | []github.com/summit-fi/goverter/execution.Input3
     |      |           |
-    |      |           |     | github.com/jmattheis/goverter/execution.Input3
+    |      |           |     | github.com/summit-fi/goverter/execution.Input3
     |      |           |     |
-    |      |           |     |  | map[string]github.com/jmattheis/goverter/execution.Input4
+    |      |           |     |  | map[string]github.com/summit-fi/goverter/execution.Input4
     |      |           |     |  |
-    |      |           |     |  |    | <mapvalue> github.com/jmattheis/goverter/execution.Input4
+    |      |           |     |  |    | <mapvalue> github.com/summit-fi/goverter/execution.Input4
     |      |           |     |  |    |
     |      |           |     |  |    |  | string
     |      |           |     |  |    |  |
@@ -55,17 +55,17 @@ error: |-
     |      |           |     |  |    |  |
     |      |           |     |  |    |  | int
     |      |           |     |  |    |
-    |      |           |     |  |    | <mapvalue> github.com/jmattheis/goverter/execution.Output4
+    |      |           |     |  |    | <mapvalue> github.com/summit-fi/goverter/execution.Output4
     |      |           |     |  |
-    |      |           |     |  | map[string]github.com/jmattheis/goverter/execution.Output4
+    |      |           |     |  | map[string]github.com/summit-fi/goverter/execution.Output4
     |      |           |     |
-    |      |           |     | github.com/jmattheis/goverter/execution.Output3
+    |      |           |     | github.com/summit-fi/goverter/execution.Output3
     |      |           |
-    |      |           | []github.com/jmattheis/goverter/execution.Output3
+    |      |           | []github.com/summit-fi/goverter/execution.Output3
     |      |
-    |      | github.com/jmattheis/goverter/execution.Output2
+    |      | github.com/summit-fi/goverter/execution.Output2
     |
-    | github.com/jmattheis/goverter/execution.Output
+    | github.com/summit-fi/goverter/execution.Output
 
     TypeMismatch: Cannot convert string to int
 

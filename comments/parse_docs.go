@@ -8,8 +8,9 @@ import (
 	"go/types"
 	"strings"
 
-	"github.com/jmattheis/goverter/config"
 	"golang.org/x/tools/go/packages"
+
+	"github.com/summit-fi/goverter/config"
 )
 
 const (

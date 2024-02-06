@@ -4,8 +4,9 @@ import (
 	"strings"
 
 	"github.com/dave/jennifer/jen"
-	"github.com/jmattheis/goverter/builder"
-	"github.com/jmattheis/goverter/config"
+
+	"github.com/summit-fi/goverter/builder"
+	"github.com/summit-fi/goverter/config"
 )
 
 // Config the generate config.

@@ -3,7 +3,7 @@
 
 package generated
 
-import matchignorecase "github.com/jmattheis/goverter/example/match-ignore-case"
+import matchignorecase "github.com/summit-fi/goverter/example/match-ignore-case"
 
 type ConverterImpl struct{}
 

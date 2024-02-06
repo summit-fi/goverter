@@ -3,7 +3,7 @@
 
 package generated
 
-import mapidentity "github.com/jmattheis/goverter/example/map-identity"
+import mapidentity "github.com/summit-fi/goverter/example/map-identity"
 
 type ConverterImpl struct{}
 

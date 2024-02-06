@@ -4,7 +4,7 @@ input:
 
         // goverter:converter
         // goverter:output:file ./generated.go
-        // goverter:output:package github.com/jmattheis/goverter/execution:structs
+        // goverter:output:package github.com/summit-fi/goverter/execution:structs
         type Converter interface {
             Convert(source Input) Output
         }

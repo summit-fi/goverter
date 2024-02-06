@@ -3,7 +3,7 @@
 
 package generated
 
-import nestedstruct "github.com/jmattheis/goverter/example/nested-struct"
+import nestedstruct "github.com/summit-fi/goverter/example/nested-struct"
 
 type ConverterImpl struct{}
 

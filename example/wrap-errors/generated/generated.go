@@ -5,7 +5,7 @@ package generated
 
 import (
 	"fmt"
-	wraperrors "github.com/jmattheis/goverter/example/wrap-errors"
+	wraperrors "github.com/summit-fi/goverter/example/wrap-errors"
 	"strconv"
 )
 

@@ -4,9 +4,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/jmattheis/goverter/comments"
-	"github.com/jmattheis/goverter/config"
-	"github.com/jmattheis/goverter/generator"
+	"github.com/summit-fi/goverter/comments"
+	"github.com/summit-fi/goverter/config"
+	"github.com/summit-fi/goverter/generator"
 )
 
 // GenerateConfig the config for generating a converter.

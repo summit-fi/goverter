@@ -4,7 +4,7 @@
 package generated
 
 import (
-	mapcustom "github.com/jmattheis/goverter/example/map-custom"
+	mapcustom "github.com/summit-fi/goverter/example/map-custom"
 	"strconv"
 )
 

@@ -9,7 +9,7 @@ input:
 
         // goverter:converter
         type Converter interface {
-            // goverter:map Age | github.com/jmattheis/goverter/execution/external:intToString
+            // goverter:map Age | github.com/summit-fi/goverter/execution/external:intToString
             Convert(source Input) Output
         }
 
@@ -22,9 +22,9 @@ input:
 error: |-
     error parsing 'goverter:map' at
         @workdir/input.go:6:5
-        func (github.com/jmattheis/goverter/execution.Converter).Convert(source github.com/jmattheis/goverter/execution.Input) github.com/jmattheis/goverter/execution.Output
+        func (github.com/summit-fi/goverter/execution.Converter).Convert(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
 
     error parsing type:
-        func github.com/jmattheis/goverter/execution/external.intToString(int) string
+        func github.com/summit-fi/goverter/execution/external.intToString(int) string
 
     must be exported

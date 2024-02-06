@@ -3,7 +3,7 @@
 
 package generated
 
-import usezerovalueonpointerinconsistency "github.com/jmattheis/goverter/example/use-zero-value-on-pointer-inconsistency"
+import usezerovalueonpointerinconsistency "github.com/summit-fi/goverter/example/use-zero-value-on-pointer-inconsistency"
 
 type ConverterImpl struct{}
 

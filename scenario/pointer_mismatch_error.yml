@@ -16,9 +16,9 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/jmattheis/goverter/execution.Converter).ConvertPerson(source github.com/jmattheis/goverter/execution.Person) github.com/jmattheis/goverter/execution.APIPerson
+        func (github.com/summit-fi/goverter/execution.Converter).ConvertPerson(source github.com/summit-fi/goverter/execution.Person) github.com/summit-fi/goverter/execution.APIPerson
 
-    | github.com/jmattheis/goverter/execution.Person
+    | github.com/summit-fi/goverter/execution.Person
     |
     |      | *string
     |      |
@@ -27,7 +27,7 @@ error: |-
     |      |
     |      | string
     |
-    | github.com/jmattheis/goverter/execution.APIPerson
+    | github.com/summit-fi/goverter/execution.APIPerson
 
     TypeMismatch: Cannot convert *string to string
     It is unclear how nil should be handled in the pointer to non pointer conversion.

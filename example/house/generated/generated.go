@@ -3,7 +3,7 @@
 
 package generated
 
-import house "github.com/jmattheis/goverter/example/house"
+import house "github.com/summit-fi/goverter/example/house"
 
 type ConverterImpl struct{}
 

@@ -3,7 +3,7 @@
 
 package generated
 
-import namestruct "github.com/jmattheis/goverter/example/name-struct"
+import namestruct "github.com/summit-fi/goverter/example/name-struct"
 
 type RenamedConverter struct{}
 

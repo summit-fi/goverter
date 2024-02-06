@@ -5,9 +5,9 @@ import (
 	"testing"
 
 	"github.com/jmattheis/goverter"
-	"github.com/jmattheis/goverter/cli"
-	"github.com/jmattheis/goverter/config"
 	"github.com/stretchr/testify/require"
+	"github.com/summit-fi/goverter/cli"
+	"github.com/summit-fi/goverter/config"
 )
 
 func TestError(t *testing.T) {

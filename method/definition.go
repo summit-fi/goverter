@@ -2,7 +2,7 @@ package method
 
 import (
 	"github.com/dave/jennifer/jen"
-	"github.com/jmattheis/goverter/xtype"
+	"github.com/summit-fi/goverter/xtype"
 )
 
 type Definition struct {

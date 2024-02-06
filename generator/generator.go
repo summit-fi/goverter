@@ -7,11 +7,12 @@ import (
 	"strings"
 
 	"github.com/dave/jennifer/jen"
-	"github.com/jmattheis/goverter/builder"
-	"github.com/jmattheis/goverter/config"
-	"github.com/jmattheis/goverter/method"
-	"github.com/jmattheis/goverter/namer"
-	"github.com/jmattheis/goverter/xtype"
+
+	"github.com/summit-fi/goverter/builder"
+	"github.com/summit-fi/goverter/config"
+	"github.com/summit-fi/goverter/method"
+	"github.com/summit-fi/goverter/namer"
+	"github.com/summit-fi/goverter/xtype"
 )
 
 type generatedMethod struct {

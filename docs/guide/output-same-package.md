@@ -39,9 +39,9 @@ func ValidateAndConvert(source *Input) (*Output, error) {
 Goverter will fail with an complilation error like this:
 
 ```
-could not load package github.com/jmattheis/goverter/example/samepackage
+could not load package github.com/summit-fi/goverter/example/samepackage
 
--: # github.com/jmattheis/goverter/example/samepackage
+-: # github.com/summit-fi/goverter/example/samepackage
 samepackage/use.go:12:8: undefined: ConverterImpl
 
 Goverter cannot generate converters when there are compile errors because it

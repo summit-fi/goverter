@@ -1,10 +1,10 @@
 package generator
 
 import (
-	"github.com/jmattheis/goverter/config"
-	"github.com/jmattheis/goverter/method"
-	"github.com/jmattheis/goverter/namer"
-	"github.com/jmattheis/goverter/xtype"
+	"github.com/summit-fi/goverter/config"
+	"github.com/summit-fi/goverter/method"
+	"github.com/summit-fi/goverter/namer"
+	"github.com/summit-fi/goverter/xtype"
 )
 
 func setupGenerator(converter *config.Converter) *generator {

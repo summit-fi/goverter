@@ -6,8 +6,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/jmattheis/goverter/method"
 	"golang.org/x/tools/go/packages"
+
+	"github.com/summit-fi/goverter/method"
 )
 
 func New(workDir, buildTags string, paths []string) (*PackageLoader, error) {

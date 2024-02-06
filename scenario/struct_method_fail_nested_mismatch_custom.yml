@@ -33,15 +33,15 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/jmattheis/goverter/execution.Converter).Convert(source github.com/jmattheis/goverter/execution.Input) github.com/jmattheis/goverter/execution.Output
+        func (github.com/summit-fi/goverter/execution.Converter).Convert(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
 
-    | github.com/jmattheis/goverter/execution.Input
+    | github.com/summit-fi/goverter/execution.Input
     |
-    |      | *github.com/jmattheis/goverter/execution.InputNested
+    |      | *github.com/summit-fi/goverter/execution.InputNested
     |      |
-    |      |      | github.com/jmattheis/goverter/execution.InputNestedNested
+    |      |      | github.com/summit-fi/goverter/execution.InputNestedNested
     |      |      |
-    |      |      |     | *github.com/jmattheis/goverter/execution.InputNestedNestedNested
+    |      |      |     | *github.com/summit-fi/goverter/execution.InputNestedNestedNested
     |      |      |     |
     |      |      |     |      | func() time.Time
     |      |      |     |      |
@@ -52,9 +52,9 @@ error: |-
     |                          |
     |                          | *string
     |
-    | github.com/jmattheis/goverter/execution.Output
+    | github.com/summit-fi/goverter/execution.Output
 
     Error using method:
-        func github.com/jmattheis/goverter/execution.MapName(string) string
+        func github.com/summit-fi/goverter/execution.MapName(string) string
 
     Method source type mismatches with conversion source: string != *time.Time

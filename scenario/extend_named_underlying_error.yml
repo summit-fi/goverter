@@ -20,11 +20,11 @@ input:
         type Output struct { ID OutputID }
 error: |-
     Error while creating converter method:
-        func (github.com/jmattheis/goverter/execution.Converter).Convert(source github.com/jmattheis/goverter/execution.Input) github.com/jmattheis/goverter/execution.Output
+        func (github.com/summit-fi/goverter/execution.Converter).Convert(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
 
-    | github.com/jmattheis/goverter/execution.Input
+    | github.com/summit-fi/goverter/execution.Input
     |
-    |      | github.com/jmattheis/goverter/execution.InputID
+    |      | github.com/summit-fi/goverter/execution.InputID
     |      |
     |      | | int
     |      | |
@@ -33,11 +33,11 @@ error: |-
     |      | |
     |      | | string
     |      |
-    |      | github.com/jmattheis/goverter/execution.OutputID
+    |      | github.com/summit-fi/goverter/execution.OutputID
     |
-    | github.com/jmattheis/goverter/execution.Output
+    | github.com/summit-fi/goverter/execution.Output
 
     Error using method:
-        func github.com/jmattheis/goverter/execution.ConvertUnderlying(s int) (string, error)
+        func github.com/summit-fi/goverter/execution.ConvertUnderlying(s int) (string, error)
 
     Used method returns error but conversion method does not

@@ -27,13 +27,13 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/jmattheis/goverter/execution.Converter).ConvertPerson(source github.com/jmattheis/goverter/execution.Input) github.com/jmattheis/goverter/execution.Output
+        func (github.com/summit-fi/goverter/execution.Converter).ConvertPerson(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
 
-    | github.com/jmattheis/goverter/execution.Input
+    | github.com/summit-fi/goverter/execution.Input
     |
-    |      | github.com/jmattheis/goverter/execution.A
+    |      | github.com/summit-fi/goverter/execution.A
     |      |
-    |      | | github.com/jmattheis/goverter/execution.B
+    |      | | github.com/summit-fi/goverter/execution.B
     |      | |
     |      | | | string
     |      | | |
@@ -42,9 +42,9 @@ error: |-
     |          |
     |          | string
     |
-    | github.com/jmattheis/goverter/execution.Output
+    | github.com/summit-fi/goverter/execution.Output
 
     Error using method:
-        func github.com/jmattheis/goverter/execution.ToAbsolute(s int) string
+        func github.com/summit-fi/goverter/execution.ToAbsolute(s int) string
 
     Method source type mismatches with conversion source: int != string
