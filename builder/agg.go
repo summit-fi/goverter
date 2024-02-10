@@ -11,7 +11,7 @@ type Agg struct{}
 
 // Matches returns true, if the builder can create handle the given types.
 func (*Agg) Matches(_ *MethodContext, source, target *xtype.Type) bool {
-	return !source.List && !source.Pointer && target.List
+	return source.List && source.Pointer && target.List
 }
 
 // Build creates conversion source code for the given source and target type.
