@@ -3,7 +3,7 @@
 
 package generated
 
-import ignoremissing "github.com/summit-fi/goverter/example/ignore-missing"
+import ignoremissing "github.com/emp1re/goverter-test/example/ignore-missing"
 
 type ConverterImpl struct{}
 

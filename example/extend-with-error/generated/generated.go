@@ -3,7 +3,7 @@
 
 package generated
 
-import extendwitherror "github.com/summit-fi/goverter/example/extend-with-error"
+import extendwitherror "github.com/emp1re/goverter-test/example/extend-with-error"
 
 type ConverterImpl struct{}
 

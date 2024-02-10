@@ -3,7 +3,7 @@
 
 package generated
 
-import errors "github.com/summit-fi/goverter/example/errors"
+import errors "github.com/emp1re/goverter-test/example/errors"
 
 type ConverterImpl struct{}
 

@@ -8,7 +8,7 @@ import (
 
 	"golang.org/x/tools/go/packages"
 
-	"github.com/summit-fi/goverter/method"
+	"github.com/emp1re/goverter-test/method"
 )
 
 func New(workDir, buildTags string, paths []string) (*PackageLoader, error) {

@@ -3,7 +3,7 @@
 
 package generated
 
-import skipcopysametype "github.com/summit-fi/goverter/example/skip-copy-same-type"
+import skipcopysametype "github.com/emp1re/goverter-test/example/skip-copy-same-type"
 
 type ConverterImpl struct{}
 

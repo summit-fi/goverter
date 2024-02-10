@@ -26,15 +26,15 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/summit-fi/goverter/execution.Converter).Convert(github.com/summit-fi/goverter/execution.Person) github.com/summit-fi/goverter/execution.FlatPerson
+        func (github.com/emp1re/goverter-test/execution.Converter).Convert(github.com/emp1re/goverter-test/execution.Person) github.com/emp1re/goverter-test/execution.FlatPerson
 
-    | github.com/summit-fi/goverter/execution.Person
+    | github.com/emp1re/goverter-test/execution.Person
     |
     |      | goverter:autoMap
     |      |
     source.Abc
     target
     |
-    | github.com/summit-fi/goverter/execution.FlatPerson
+    | github.com/emp1re/goverter-test/execution.FlatPerson
 
     "Abc" does not exist

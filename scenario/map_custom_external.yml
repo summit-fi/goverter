@@ -9,7 +9,7 @@ input:
 
         // goverter:converter
         type Converter interface {
-            // goverter:map Age | github.com/summit-fi/goverter/execution/external:IntToString
+            // goverter:map Age | github.com/emp1re/goverter-test/execution/external:IntToString
             Convert(source Input) Output
         }
 
@@ -26,8 +26,8 @@ success:
         package generated
 
         import (
-        	execution "github.com/summit-fi/goverter/execution"
-        	external "github.com/summit-fi/goverter/execution/external"
+        	execution "github.com/emp1re/goverter-test/execution"
+        	external "github.com/emp1re/goverter-test/execution/external"
         )
 
         type ConverterImpl struct{}

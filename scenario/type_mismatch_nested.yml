@@ -27,15 +27,15 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/summit-fi/goverter/execution.Converter).Convert(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
+        func (github.com/emp1re/goverter-test/execution.Converter).Convert(source github.com/emp1re/goverter-test/execution.Input) github.com/emp1re/goverter-test/execution.Output
 
-    | github.com/summit-fi/goverter/execution.Input
+    | github.com/emp1re/goverter-test/execution.Input
     |
-    |      | *github.com/summit-fi/goverter/execution.InputNested
+    |      | *github.com/emp1re/goverter-test/execution.InputNested
     |      |
-    |      |      | github.com/summit-fi/goverter/execution.InputNestedNested
+    |      |      | github.com/emp1re/goverter-test/execution.InputNestedNested
     |      |      |
-    |      |      |     | *github.com/summit-fi/goverter/execution.InputNestedNestedNested
+    |      |      |     | *github.com/emp1re/goverter-test/execution.InputNestedNestedNested
     |      |      |     |
     |      |      |     |      | *time.Time (It is a pointer because the nested property in the goverter:map was a pointer)
     |      |      |     |      |
@@ -48,7 +48,7 @@ error: |-
     |                          |
     |                          | *string
     |
-    | github.com/summit-fi/goverter/execution.Output
+    | github.com/emp1re/goverter-test/execution.Output
 
     TypeMismatch: Cannot convert time.Time to string
 

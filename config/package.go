@@ -3,7 +3,7 @@ package config
 import (
 	"strings"
 
-	"github.com/summit-fi/goverter/pkgload"
+	"github.com/emp1re/goverter-test/pkgload"
 )
 
 func getPackages(raw *Raw) []string {

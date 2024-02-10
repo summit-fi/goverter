@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"testing"
 
+	"github.com/emp1re/goverter-test/example/house"
+	"github.com/emp1re/goverter-test/example/house/generated"
 	"github.com/stretchr/testify/require"
-	"github.com/summit-fi/goverter/example/house"
-	"github.com/summit-fi/goverter/example/house/generated"
 )
 
 func TestConverter(t *testing.T) {

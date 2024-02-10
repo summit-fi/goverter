@@ -3,7 +3,7 @@
 
 package generated
 
-import default1 "github.com/summit-fi/goverter/example/default"
+import default1 "github.com/emp1re/goverter-test/example/default"
 
 type ConverterImpl struct{}
 

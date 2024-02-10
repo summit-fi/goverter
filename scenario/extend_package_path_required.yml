@@ -9,7 +9,7 @@ input:
 error: |-
     error parsing 'goverter:extend' at
         @workdir/input.go:5:1
-        github.com/summit-fi/goverter/execution.Converter
+        github.com/emp1re/goverter-test/execution.Converter
 
     package path must not be empty in the custom method ":Convert".
     See https://goverter.jmattheis.de/reference/extend

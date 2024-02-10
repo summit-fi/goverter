@@ -2,7 +2,7 @@ package builder
 
 import (
 	"github.com/dave/jennifer/jen"
-	"github.com/summit-fi/goverter/xtype"
+	"github.com/emp1re/goverter-test/xtype"
 )
 
 // SkipCopy handles FlagSkipCopySameType.

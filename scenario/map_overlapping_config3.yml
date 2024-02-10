@@ -18,14 +18,14 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/summit-fi/goverter/execution.Converter).ConvertSub(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
+        func (github.com/emp1re/goverter-test/execution.Converter).ConvertSub(source github.com/emp1re/goverter-test/execution.Input) github.com/emp1re/goverter-test/execution.Output
 
-    | github.com/summit-fi/goverter/execution.Input
+    | github.com/emp1re/goverter-test/execution.Input
     |
     source
     target
     |
-    | github.com/summit-fi/goverter/execution.Output
+    | github.com/emp1re/goverter-test/execution.Output
 
     Overlapping struct settings found.
 

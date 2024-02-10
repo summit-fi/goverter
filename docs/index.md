@@ -54,7 +54,7 @@ use reflection.
 1. Run `goverter`:
 
     ```bash-vue
-    $ go run github.com/summit-fi/goverter/cmd/goverter@{{ libVersion }} gen ./
+    $ go run github.com/emp1re/goverter-test/cmd/goverter@{{ libVersion }} gen ./
     ```
 
     It's recommended to use an explicit version instead of `latest`. See

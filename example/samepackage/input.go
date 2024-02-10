@@ -2,7 +2,7 @@ package samepackage
 
 // goverter:converter
 // goverter:output:file ./generated.go
-// goverter:output:package github.com/summit-fi/goverter/example/samepackage
+// goverter:output:package github.com/emp1re/goverter-test/example/samepackage
 type Converter interface {
 	Convert(source *Input) *Output
 }

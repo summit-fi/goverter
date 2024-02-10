@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/summit-fi/goverter/cli"
+	"github.com/emp1re/goverter-test/cli"
 
-	goverter "github.com/summit-fi/goverter"
+	goverter "github.com/emp1re/goverter-test"
 )
 
 func main() {

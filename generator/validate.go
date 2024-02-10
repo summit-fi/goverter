@@ -3,7 +3,7 @@ package generator
 import (
 	"fmt"
 
-	"github.com/summit-fi/goverter/xtype"
+	"github.com/emp1re/goverter-test/xtype"
 )
 
 func validateMethods(lookup map[xtype.Signature]*generatedMethod) error {

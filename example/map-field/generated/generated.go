@@ -3,7 +3,7 @@
 
 package generated
 
-import mapfield "github.com/summit-fi/goverter/example/map-field"
+import mapfield "github.com/emp1re/goverter-test/example/map-field"
 
 type ConverterImpl struct{}
 

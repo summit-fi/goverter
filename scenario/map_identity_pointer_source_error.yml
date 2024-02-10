@@ -22,9 +22,9 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/summit-fi/goverter/execution.Converter).ConvertPerson(source github.com/summit-fi/goverter/execution.Person) github.com/summit-fi/goverter/execution.APIPerson
+        func (github.com/emp1re/goverter-test/execution.Converter).ConvertPerson(source github.com/emp1re/goverter-test/execution.Person) github.com/emp1re/goverter-test/execution.APIPerson
 
-    | github.com/summit-fi/goverter/execution.Person
+    | github.com/emp1re/goverter-test/execution.Person
     |
     |      | goverter:map . FullName
     |      |
@@ -33,9 +33,9 @@ error: |-
     |      |
     |      | string
     |
-    | github.com/summit-fi/goverter/execution.APIPerson
+    | github.com/emp1re/goverter-test/execution.APIPerson
 
     Error using method:
-        func github.com/summit-fi/goverter/execution.ToFullName(input *github.com/summit-fi/goverter/execution.Person) string
+        func github.com/emp1re/goverter-test/execution.ToFullName(input *github.com/emp1re/goverter-test/execution.Person) string
 
-    Method source type mismatches with conversion source: *github.com/summit-fi/goverter/execution.Person != github.com/summit-fi/goverter/execution.Person
+    Method source type mismatches with conversion source: *github.com/emp1re/goverter-test/execution.Person != github.com/emp1re/goverter-test/execution.Person

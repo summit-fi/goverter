@@ -17,9 +17,9 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/summit-fi/goverter/execution.Converter).ConvertPerson(source github.com/summit-fi/goverter/execution.Person) github.com/summit-fi/goverter/execution.APIPerson
+        func (github.com/emp1re/goverter-test/execution.Converter).ConvertPerson(source github.com/emp1re/goverter-test/execution.Person) github.com/emp1re/goverter-test/execution.APIPerson
 
-    | github.com/summit-fi/goverter/execution.Person
+    | github.com/emp1re/goverter-test/execution.Person
     |
     |      | *string
     |      |
@@ -30,7 +30,7 @@ error: |-
     |      |
     |      | int
     |
-    | github.com/summit-fi/goverter/execution.APIPerson
+    | github.com/emp1re/goverter-test/execution.APIPerson
 
     TypeMismatch: Cannot convert string to int
 

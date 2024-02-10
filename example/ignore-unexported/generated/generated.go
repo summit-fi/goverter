@@ -3,7 +3,7 @@
 
 package generated
 
-import ignoreunexported "github.com/summit-fi/goverter/example/ignore-unexported"
+import ignoreunexported "github.com/emp1re/goverter-test/example/ignore-unexported"
 
 type ConverterImpl struct{}
 
