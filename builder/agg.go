@@ -93,6 +93,7 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 	fmt.Println("sourceID", sourceID)
 	fmt.Println("source", source)
 	fmt.Println("target", target)
+	fmt.Println("target.ID", name)
 	//fmt.Println("target.ID", target.ID())
 	//fmt.Println("target.ID().Code", target.ID().Code)
 	//fmt.Println("target.ID().Code.Clone()", )
@@ -103,40 +104,40 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 	//
 	//	jen.For(jen.List(jen.Id("_"), jen.Id("v")).Op(":=").Range().Id(source.ID(),), jen.Block(
 	//}
+	//
+	//mapID := jen.Id("m")
+	//vID := jen.Id("v")
+	//okID := jen.Id("ok")
+	//objID := jen.Id("obj")
+	//foundID := jen.Id("found")
+	//resultID := jen.Id("result")
+	//
+	//stmt := []jen.Code{
+	//	mapID.Op(":=").Map(jen.Int()).Id(source.String).Values(),
+	//	jen.For(vID.Op(":=").Range().Id(source.String), jen.Block(
+	//		jen.List(jen.Id("_"), okID).Op(":=").Id(source.String).Index(vID.Id("ID")),
+	//		jen.If(okID).Block(
+	//			jen.Id(source.String).Index(vID.Id("ID")).Op("=").Id("Output1").Values(jen.Dict{
+	//				jen.Id("ID"):        vID.Id("ID"),
+	//				jen.Id("Name"):      vID.Id("Name"),
+	//				jen.Id("Addresses"): jen.Index().String().Values(),
+	//			}),
+	//		),
+	//		objID.Op(":=").Id(source.String).Index(vID.Id("ID")),
+	//		objID.Id("Addresses").Op("=").Append(objID.Id("Addresses"), vID.Id("Address")),
+	//		jen.Id(source.String).Index(vID.Id("ID")).Op("=").Id(source.String),
+	//	)),
+	//	resultID.Op(":=").Index().Id("Output1").Values(),
+	//	jen.For(vID.Op(":=").Range().Id(name), jen.Block(
+	//		jen.List(foundID, okID).Op(":=").Id(source.String).Index(vID.Id("ID")),
+	//		jen.If(okID).Block(
+	//			jen.Delete(mapID, vID.Id("ID")),
+	//			resultID.Op("=").Append(resultID, foundID),
+	//		),
+	//	)),
+	//	jen.Return(resultID),
+	//}
 
-	mapID := jen.Id("m")
-	vID := jen.Id("v")
-	okID := jen.Id("ok")
-	objID := jen.Id("obj")
-	foundID := jen.Id("found")
-	resultID := jen.Id("result")
-
-	stmt := []jen.Code{
-		mapID.Op(":=").Map(jen.Int()).Id(source.String).Values(),
-		jen.For(vID.Op(":=").Range().Id(source.String), jen.Block(
-			jen.List(jen.Id("_"), okID).Op(":=").Id(source.String).Index(vID.Id("ID")),
-			jen.If(okID).Block(
-				jen.Id(source.String).Index(vID.Id("ID")).Op("=").Id("Output1").Values(jen.Dict{
-					jen.Id("ID"):        vID.Id("ID"),
-					jen.Id("Name"):      vID.Id("Name"),
-					jen.Id("Addresses"): jen.Index().String().Values(),
-				}),
-			),
-			objID.Op(":=").Id(source.String).Index(vID.Id("ID")),
-			objID.Id("Addresses").Op("=").Append(objID.Id("Addresses"), vID.Id("Address")),
-			jen.Id(source.String).Index(vID.Id("ID")).Op("=").Id(source.String),
-		)),
-		resultID.Op(":=").Index().Id("Output1").Values(),
-		jen.For(vID.Op(":=").Range().Id(name), jen.Block(
-			jen.List(foundID, okID).Op(":=").Id(source.String).Index(vID.Id("ID")),
-			jen.If(okID).Block(
-				jen.Delete(mapID, vID.Id("ID")),
-				resultID.Op("=").Append(resultID, foundID),
-			),
-		)),
-		jen.Return(resultID),
-	}
-
-	return stmt, xtype.VariableID(resultID), nil
+	return nil, nil, nil
 	//return stmt, xtype.OtherID(newID), nil
 }
