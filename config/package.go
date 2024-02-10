@@ -44,6 +44,10 @@ func registerMethodLines(lookup map[string]struct{}, cwd string, lines RawLines)
 			if _, _, custom, err := parseMethodMap(rest); err == nil && custom != "" {
 				registerFullMethod(lookup, cwd, custom)
 			}
+		case configAgg:
+			if _, _, custom, err := parseMethodAgg(rest); err == nil && custom != "" {
+				registerFullMethod(lookup, cwd, custom)
+			}
 		case configDefault:
 			registerFullMethod(lookup, cwd, rest)
 		}

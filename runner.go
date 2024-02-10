@@ -1,6 +1,7 @@
 package goverter
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 
@@ -25,6 +26,7 @@ type GenerateConfig struct {
 
 // GenerateConverters generates converters.
 func GenerateConverters(c *GenerateConfig) error {
+	fmt.Println("let's start $1000 challenge")
 	files, err := generateConvertersRaw(c)
 	if err != nil {
 		return err
