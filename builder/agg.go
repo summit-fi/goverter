@@ -89,11 +89,11 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 	//return stmt, xtype.VariableID(jen.Id(targetSlice)), nil
 	name := ctx.Name(target.ID())
 	ctx.SetErrorTargetVar(jen.Nil())
-	fmt.Println("sourceID.Code", sourceID.Code)
-	fmt.Println("sourceID", sourceID)
 	fmt.Println("source", source)
 	fmt.Println("target", target)
 	fmt.Println("target.ID", name)
+	smtp := []jen.Code{jen.Id("m").Op(":=").Map(jen.Int()).Add(target.TypeAsJen()).Values()}
+	return smtp, xtype.VariableID(jen.Id(target.String)), nil
 	//fmt.Println("target.ID", target.ID())
 	//fmt.Println("target.ID().Code", target.ID().Code)
 	//fmt.Println("target.ID().Code.Clone()", )
@@ -137,7 +137,7 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 	//	)),
 	//	jen.Return(resultID),
 	//}
-
-	return nil, nil, nil
+	//
+	//return nil, nil, nil
 	//return stmt, xtype.OtherID(newID), nil
 }
