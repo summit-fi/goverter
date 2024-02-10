@@ -1,6 +1,8 @@
 package builder
 
 import (
+	"fmt"
+
 	"github.com/dave/jennifer/jen"
 
 	"github.com/emp1re/goverter-test/xtype"
@@ -48,43 +50,93 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 	//)
 	//
 	//newID := jen.Id(name)
+	//ctx.SetErrorTargetVar(jen.Nil())
+	//targetSlice := ctx.Name(target.ID())
+	//index := ctx.Index()
+	//
+	//indexedSource := xtype.VariableID(sourceID.Code.Clone().Index(jen.Id(index)))
+	//
+	//errWrapper := Wrap("error setting index %d", jen.Id(index))
+	//forBlock, newID, err := gen.Build(ctx, indexedSource, source.ListInner, target.ListInner, errWrapper)
+	//if err != nil {
+	//	return nil, nil, err.Lift(&Path{
+	//		SourceID:   "[]",
+	//		SourceType: source.ListInner.String,
+	//		TargetID:   "[]",
+	//		TargetType: target.ListInner.String,
+	//	})
+	//}
+	//forBlock = append(forBlock, jen.Id(targetSlice).Index(jen.Id(index)).Op("=").Add(newID.Code))
+	//forStmt := jen.For(jen.Id(index).Op(":=").Lit(0), jen.Id(index).Op("<").Len(sourceID.Code.Clone()), jen.Id(index).Op("++")).
+	//	Block(forBlock...)
+	//
+	//stmt := []jen.Code{}
+	//if source.ListFixed {
+	//	stmt = []jen.Code{
+	//		jen.Id(targetSlice).Op(":=").Make(target.TypeAsJen(), jen.Len(sourceID.Code.Clone())),
+	//		forStmt,
+	//	}
+	//} else {
+	//	stmt = []jen.Code{
+	//		jen.Var().Add(jen.Id(targetSlice), target.TypeAsJen()),
+	//		jen.If(sourceID.Code.Clone().Op("!=").Nil()).Block(
+	//			jen.Id(targetSlice).Op("=").Make(target.TypeAsJen(), jen.Len(sourceID.Code.Clone())),
+	//			forStmt,
+	//		),
+	//	}
+	//}
+	//
+	//return stmt, xtype.VariableID(jen.Id(targetSlice)), nil
+	name := ctx.Name(target.ID())
 	ctx.SetErrorTargetVar(jen.Nil())
-	targetSlice := ctx.Name(target.ID())
-	index := ctx.Index()
+	fmt.Println("sourceID.Code", sourceID.Code)
+	fmt.Println("sourceID", sourceID)
+	fmt.Println("source", source)
+	fmt.Println("target", target)
+	//fmt.Println("target.ID", target.ID())
+	//fmt.Println("target.ID().Code", target.ID().Code)
+	//fmt.Println("target.ID().Code.Clone()", )
 
-	indexedSource := xtype.VariableID(sourceID.Code.Clone().Index(jen.Id(index)))
+	//smtp := []jen.Code{
+	//	jen.Id("m").Op(":=").Map(jen.Int()).Id(source.String).Values(),
+	//
+	//
+	//	jen.For(jen.List(jen.Id("_"), jen.Id("v")).Op(":=").Range().Id(source.ID(),), jen.Block(
+	//}
 
-	errWrapper := Wrap("error setting index %d", jen.Id(index))
-	forBlock, newID, err := gen.Build(ctx, indexedSource, source.ListInner, target.ListInner, errWrapper)
-	if err != nil {
-		return nil, nil, err.Lift(&Path{
-			SourceID:   "[]",
-			SourceType: source.ListInner.String,
-			TargetID:   "[]",
-			TargetType: target.ListInner.String,
-		})
-	}
-	forBlock = append(forBlock, jen.Id(targetSlice).Index(jen.Id(index)).Op("=").Add(newID.Code))
-	forStmt := jen.For(jen.Id(index).Op(":=").Lit(0), jen.Id(index).Op("<").Len(sourceID.Code.Clone()), jen.Id(index).Op("++")).
-		Block(forBlock...)
+	mapID := jen.Id("m")
+	vID := jen.Id("v")
+	okID := jen.Id("ok")
+	objID := jen.Id("obj")
+	foundID := jen.Id("found")
+	resultID := jen.Id("result")
 
-	stmt := []jen.Code{}
-	if source.ListFixed {
-		stmt = []jen.Code{
-			jen.Id(targetSlice).Op(":=").Make(target.TypeAsJen(), jen.Len(sourceID.Code.Clone())),
-			forStmt,
-		}
-	} else {
-		stmt = []jen.Code{
-			jen.Var().Add(jen.Id(targetSlice), target.TypeAsJen()),
-			jen.If(sourceID.Code.Clone().Op("!=").Nil()).Block(
-				jen.Id(targetSlice).Op("=").Make(target.TypeAsJen(), jen.Len(sourceID.Code.Clone())),
-				forStmt,
+	stmt := []jen.Code{
+		mapID.Op(":=").Map(jen.Int()).Id(source.String).Values(),
+		jen.For(vID.Op(":=").Range().Id(source.String), jen.Block(
+			jen.List(jen.Id("_"), okID).Op(":=").Id(source.String).Index(vID.Id("ID")),
+			jen.If(okID).Block(
+				jen.Id(source.String).Index(vID.Id("ID")).Op("=").Id("Output1").Values(jen.Dict{
+					jen.Id("ID"):        vID.Id("ID"),
+					jen.Id("Name"):      vID.Id("Name"),
+					jen.Id("Addresses"): jen.Index().String().Values(),
+				}),
 			),
-		}
+			objID.Op(":=").Id(source.String).Index(vID.Id("ID")),
+			objID.Id("Addresses").Op("=").Append(objID.Id("Addresses"), vID.Id("Address")),
+			jen.Id(source.String).Index(vID.Id("ID")).Op("=").Id(source.String),
+		)),
+		resultID.Op(":=").Index().Id("Output1").Values(),
+		jen.For(vID.Op(":=").Range().Id(name), jen.Block(
+			jen.List(foundID, okID).Op(":=").Id(source.String).Index(vID.Id("ID")),
+			jen.If(okID).Block(
+				jen.Delete(mapID, vID.Id("ID")),
+				resultID.Op("=").Append(resultID, foundID),
+			),
+		)),
+		jen.Return(resultID),
 	}
 
-	return stmt, xtype.VariableID(jen.Id(targetSlice)), nil
-
+	return stmt, xtype.VariableID(resultID), nil
 	//return stmt, xtype.OtherID(newID), nil
 }
