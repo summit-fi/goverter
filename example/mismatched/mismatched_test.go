@@ -1,6 +1,7 @@
 package mismatched_test
 
 import (
+	"encoding/json"
 	"testing"
 
 	"github.com/emp1re/goverter-test/example/mismatched"
@@ -51,5 +52,10 @@ func TestConverter(t *testing.T) {
 		},
 	}
 
+	bytes, err := json.MarshalIndent(expected, "", " ")
+	if err != nil {
+		panic(err)
+	}
+	t.Log(string(bytes))
 	require.Equal(t, expected, actual)
 }
