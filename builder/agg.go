@@ -1,8 +1,6 @@
 package builder
 
 import (
-	"fmt"
-
 	"github.com/dave/jennifer/jen"
 
 	"github.com/emp1re/goverter-test/xtype"
@@ -18,38 +16,75 @@ func (*Agg) Matches(_ *MethodContext, source, target *xtype.Type) bool {
 
 // Build creates conversion source code for the given source and target type.
 func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, source, target *xtype.Type) ([]jen.Code, *xtype.JenID, *Error) {
-	name := ctx.Name(target.ID())
-	ctx.SetErrorTargetVar(jen.Nil())
+	//name := ctx.Name(target.ID())
+	//ctx.SetErrorTargetVar(jen.Nil())
 
 	// Create a map of elements
 	//mapElem := jen.Map(jen.Int()).Add(target.TypeAsJen()).Values()
 	//
 	//// Create a slice of elements
 	//slice := jen.Index().Add(target.TypeAsJen()).Values()
-	fmt.Println(name)
-	stmt := append([]jen.Code{},
-		jen.For(jen.List(jen.Id("_"), jen.Id("v")).Op(":=").Range().Add(sourceID.Code),
-			jen.If(jen.List(jen.Id("_"), jen.Id("ok")).Op(":=").Id("v.ID").Index(jen.Id("v.ID")), jen.Op("!ok"),
-				jen.Id(name).Index(jen.Id("v.ID")).Op("=").Add(target.TypeAsJen()).Values(jen.Dict{
-					jen.Id(name): jen.Id("v.ID"),
-					jen.Id(name): jen.Id("v.Name"),
-					jen.Id(name): jen.Index().String().Values(),
-				}),
-			),
-			jen.Id("obj").Op(":=").Id(name).Index(jen.Id("v.ID")),
-			jen.Id("obj.Addresses").Op("=").Append(jen.Id("obj.Addresses"), jen.Id("v.Address")),
-			jen.Id(name).Index(jen.Id("v.ID")).Op("=").Id("obj"),
-		),
-		jen.For(jen.List(jen.Id("_"), jen.Id("v")).Op(":=").Range().Add(sourceID.Code),
-			jen.If(jen.List(jen.Id("found"), jen.Id("ok")).Op(":=").Id(name).Index(jen.Id("v.ID")), jen.Op("!ok"),
-				jen.Continue(),
-			),
-			jen.Delete(jen.Id(name), jen.Id("v.ID")),
-			jen.Id("result").Op("=").Append(jen.Id("result"), jen.Id("found")),
-		),
-	)
 
-	newID := jen.Id(name)
+	//stmt := append([]jen.Code{},
+	//	jen.For(jen.List(jen.Id("_"), jen.Id("v")).Op(":=").Range().Add(sourceID.Code),
+	//		jen.If(jen.List(jen.Id("_"), jen.Id("ok")).Op(":=").Id("v.ID").Index(jen.Id("v.ID")), jen.Op("!ok"),
+	//			jen.Id(name).Index(jen.Id("v.ID")).Op("=").Add(target.TypeAsJen()).Values(jen.Dict{
+	//				jen.Id(name): jen.Id("v.ID"),
+	//				jen.Id(name): jen.Id("v.Name"),
+	//				jen.Id(name): jen.Index().String().Values(),
+	//			}),
+	//		),
+	//		jen.Id("obj").Op(":=").Id(name).Index(jen.Id("v.ID")),
+	//		jen.Id("obj.Addresses").Op("=").Append(jen.Id("obj.Addresses"), jen.Id("v.Address")),
+	//		jen.Id(name).Index(jen.Id("v.ID")).Op("=").Id("obj"),
+	//	),
+	//	jen.For(jen.List(jen.Id("_"), jen.Id("v")).Op(":=").Range().Add(sourceID.Code),
+	//		jen.If(jen.List(jen.Id("found"), jen.Id("ok")).Op(":=").Id(name).Index(jen.Id("v.ID")), jen.Op("!ok"),
+	//			jen.Continue(),
+	//		),
+	//		jen.Delete(jen.Id(name), jen.Id("v.ID")),
+	//		jen.Id("result").Op("=").Append(jen.Id("result"), jen.Id("found")),
+	//	),
+	//)
+	//
+	//newID := jen.Id(name)
+	ctx.SetErrorTargetVar(jen.Nil())
+	targetSlice := ctx.Name(target.ID())
+	index := ctx.Index()
 
-	return stmt, xtype.OtherID(newID), nil
+	indexedSource := xtype.VariableID(sourceID.Code.Clone().Index(jen.Id(index)))
+
+	errWrapper := Wrap("error setting index %d", jen.Id(index))
+	forBlock, newID, err := gen.Build(ctx, indexedSource, source.ListInner, target.ListInner, errWrapper)
+	if err != nil {
+		return nil, nil, err.Lift(&Path{
+			SourceID:   "[]",
+			SourceType: source.ListInner.String,
+			TargetID:   "[]",
+			TargetType: target.ListInner.String,
+		})
+	}
+	forBlock = append(forBlock, jen.Id(targetSlice).Index(jen.Id(index)).Op("=").Add(newID.Code))
+	forStmt := jen.For(jen.Id(index).Op(":=").Lit(0), jen.Id(index).Op("<").Len(sourceID.Code.Clone()), jen.Id(index).Op("++")).
+		Block(forBlock...)
+
+	stmt := []jen.Code{}
+	if source.ListFixed {
+		stmt = []jen.Code{
+			jen.Id(targetSlice).Op(":=").Make(target.TypeAsJen(), jen.Len(sourceID.Code.Clone())),
+			forStmt,
+		}
+	} else {
+		stmt = []jen.Code{
+			jen.Var().Add(jen.Id(targetSlice), target.TypeAsJen()),
+			jen.If(sourceID.Code.Clone().Op("!=").Nil()).Block(
+				jen.Id(targetSlice).Op("=").Make(target.TypeAsJen(), jen.Len(sourceID.Code.Clone())),
+				forStmt,
+			),
+		}
+	}
+
+	return stmt, xtype.VariableID(jen.Id(targetSlice)), nil
+
+	//return stmt, xtype.OtherID(newID), nil
 }
