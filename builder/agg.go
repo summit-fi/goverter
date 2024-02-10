@@ -1,6 +1,8 @@
 package builder
 
 import (
+	"fmt"
+
 	"github.com/dave/jennifer/jen"
 
 	"github.com/emp1re/goverter-test/xtype"
@@ -19,12 +21,34 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 	name := ctx.Name(target.ID())
 	ctx.SetErrorTargetVar(jen.Nil())
 
-	// Create a slice of elements
-	slice := jen.Index().Add(source.TypeAsJen()).ValuesFunc(func(g *jen.Group) {
-		g.Add(sourceID.Code)
-	})
+	// Create a map of elements
+	//mapElem := jen.Map(jen.Int()).Add(target.TypeAsJen()).Values()
+	//
+	//// Create a slice of elements
+	//slice := jen.Index().Add(target.TypeAsJen()).Values()
+	fmt.Println(name)
+	stmt := append([]jen.Code{},
+		jen.For(jen.List(jen.Id("_"), jen.Id("v")).Op(":=").Range().Add(sourceID.Code),
+			jen.If(jen.List(jen.Id("_"), jen.Id("ok")).Op(":=").Id("v.ID").Index(jen.Id("v.ID")), jen.Op("!ok"),
+				jen.Id(name).Index(jen.Id("v.ID")).Op("=").Add(target.TypeAsJen()).Values(jen.Dict{
+					jen.Id(name): jen.Id("v.ID"),
+					jen.Id(name): jen.Id("v.Name"),
+					jen.Id(name): jen.Index().String().Values(),
+				}),
+			),
+			jen.Id("obj").Op(":=").Id(name).Index(jen.Id("v.ID")),
+			jen.Id("obj.Addresses").Op("=").Append(jen.Id("obj.Addresses"), jen.Id("v.Address")),
+			jen.Id(name).Index(jen.Id("v.ID")).Op("=").Id("obj"),
+		),
+		jen.For(jen.List(jen.Id("_"), jen.Id("v")).Op(":=").Range().Add(sourceID.Code),
+			jen.If(jen.List(jen.Id("found"), jen.Id("ok")).Op(":=").Id(name).Index(jen.Id("v.ID")), jen.Op("!ok"),
+				jen.Continue(),
+			),
+			jen.Delete(jen.Id(name), jen.Id("v.ID")),
+			jen.Id("result").Op("=").Append(jen.Id("result"), jen.Id("found")),
+		),
+	)
 
-	stmt := append([]jen.Code{}, jen.Id(name).Op(":=").Add(slice))
 	newID := jen.Id(name)
 
 	return stmt, xtype.OtherID(newID), nil
