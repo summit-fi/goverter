@@ -88,17 +88,20 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 	//
 	//return stmt, xtype.VariableID(jen.Id(targetSlice)), nil
 	name := ctx.Name(target.ID())
+	sN := ctx.Name(source.ID())
 	ctx.SetErrorTargetVar(jen.Nil())
 	fmt.Println("source", source)
 	fmt.Println("target", target)
 	fmt.Println("source.ID", source.ID())
+	fmt.Println("target.ID", target.ID())
+	fmt.Println("sourceID", sourceID)
 	fmt.Println("target.ID", name)
+	fmt.Println("source.ID", sN)
 
-	smtp := []jen.Code{jen.Id("m").Op(":=").Map(jen.Int()).Add(target.TypeAsJen()).Values()
-
-	}
+	smtp := append([]jen.Code{}, jen.Id("m").Op(":=").Map(jen.Int()).Add(target.TypeAsJen()).Values())
 
 	return smtp, xtype.VariableID(jen.Id(target.String)), nil
+
 	//fmt.Println("target.ID", target.ID())
 	//fmt.Println("target.ID().Code", target.ID().Code)
 	//fmt.Println("target.ID().Code.Clone()", )
