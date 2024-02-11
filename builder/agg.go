@@ -91,8 +91,13 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 	ctx.SetErrorTargetVar(jen.Nil())
 	fmt.Println("source", source)
 	fmt.Println("target", target)
+	fmt.Println("source.ID", source.ID())
 	fmt.Println("target.ID", name)
-	smtp := []jen.Code{jen.Id("m").Op(":=").Map(jen.Int()).Add(target.TypeAsJen()).Values()}
+
+	smtp := []jen.Code{jen.Id("m").Op(":=").Map(jen.Int()).Add(target.TypeAsJen()).Values()
+
+	}
+
 	return smtp, xtype.VariableID(jen.Id(target.String)), nil
 	//fmt.Println("target.ID", target.ID())
 	//fmt.Println("target.ID().Code", target.ID().Code)
