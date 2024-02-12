@@ -5,7 +5,7 @@ input:
         // goverter:converter
         type Converter interface {
             Convert(Input1) Output1
-            // goverter:agg Address Address
+            // goverter:agg Address Addresses
             ConvertAgg(source []Input1) []Output1
         }
         type Input1 struct {
@@ -27,7 +27,7 @@ input:
             Color   string
             Tax     rune
             Phone   string
-            Address []string
+            Addresses []string
         }
 success:
     - generated/generated.go: |
