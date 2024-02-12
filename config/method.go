@@ -140,8 +140,8 @@ func parseMethodLine(loader *pkgload.PackageLoader, c *Converter, m *Method, val
 	return err
 }
 func parseMethodAgg(remaining string) (source, target, custom string, err error) {
-	parts := strings.SplitN(remaining, "|", 3)
-	if len(parts) == 3 {
+	parts := strings.SplitN(remaining, "|", 2)
+	if len(parts) == 2 {
 		custom = strings.TrimSpace(parts[1])
 	}
 	fields := strings.Fields(parts[0])
@@ -151,10 +151,7 @@ func parseMethodAgg(remaining string) (source, target, custom string, err error)
 	case 2:
 		source = fields[0]
 		target = fields[1]
-	case 3:
-		source = fields[0]
-		target = fields[1]
-		custom = fields[2]
+
 	case 0:
 		err = fmt.Errorf("missing target field")
 	default:
