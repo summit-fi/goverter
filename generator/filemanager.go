@@ -8,7 +8,7 @@ import (
 
 	"github.com/dave/jennifer/jen"
 
-	"github.com/summit-fi/goverter/config"
+	"github.com/emp1re/goverter-test/config"
 )
 
 type fileManager struct {

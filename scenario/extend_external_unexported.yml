@@ -9,7 +9,7 @@ input:
         package execution
 
         // goverter:converter
-        // goverter:extend github.com/summit-fi/goverter/execution/generated:intToString
+        // goverter:extend github.com/emp1re/goverter-test/execution/generated:intToString
         type Converter interface {
             Convert(source Input) Output
         }
@@ -26,7 +26,7 @@ success:
 
         package generated
 
-        import execution "github.com/summit-fi/goverter/execution"
+        import execution "github.com/emp1re/goverter-test/execution"
 
         type ConverterImpl struct{}
 

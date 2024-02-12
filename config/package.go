@@ -3,7 +3,7 @@ package config
 import (
 	"strings"
 
-	"github.com/summit-fi/goverter/pkgload"
+	"github.com/emp1re/goverter-test/pkgload"
 )
 
 func getPackages(raw *Raw) []string {
@@ -42,6 +42,10 @@ func registerMethodLines(lookup map[string]struct{}, cwd string, lines RawLines)
 		switch cmd {
 		case configMap:
 			if _, _, custom, err := parseMethodMap(rest); err == nil && custom != "" {
+				registerFullMethod(lookup, cwd, custom)
+			}
+		case configAgg:
+			if _, _, custom, err := parseMethodAgg(rest); err == nil && custom != "" {
 				registerFullMethod(lookup, cwd, custom)
 			}
 		case configDefault:

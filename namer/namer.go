@@ -3,7 +3,7 @@ package namer
 import (
 	"fmt"
 
-	"github.com/summit-fi/goverter/xtype"
+	"github.com/emp1re/goverter-test/xtype"
 )
 
 // New returns a new namer.

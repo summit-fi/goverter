@@ -3,7 +3,7 @@ package builder
 import (
 	"github.com/dave/jennifer/jen"
 
-	"github.com/summit-fi/goverter/xtype"
+	"github.com/emp1re/goverter-test/xtype"
 )
 
 // ItemToListRule handles edge conditions if the target type is a pointer.

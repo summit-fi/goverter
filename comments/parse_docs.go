@@ -10,7 +10,7 @@ import (
 
 	"golang.org/x/tools/go/packages"
 
-	"github.com/summit-fi/goverter/config"
+	"github.com/emp1re/goverter-test/config"
 )
 
 const (

@@ -29,7 +29,7 @@ success:
 
             package generated
 
-            import execution "github.com/summit-fi/goverter/execution"
+            import execution "github.com/emp1re/goverter-test/execution"
 
             type ConverterImpl struct{}
 

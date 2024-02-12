@@ -19,11 +19,11 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/summit-fi/goverter/execution.Converter).Convert(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
+        func (github.com/emp1re/goverter-test/execution.Converter).Convert(source github.com/emp1re/goverter-test/execution.Input) github.com/emp1re/goverter-test/execution.Output
 
-    | github.com/summit-fi/goverter/execution.Input
+    | github.com/emp1re/goverter-test/execution.Input
     |
-    |      | github.com/summit-fi/goverter/execution.Nested
+    |      | github.com/emp1re/goverter-test/execution.Nested
     |      |
     |      |      | int
     |      |      |
@@ -32,7 +32,7 @@ error: |-
     |             |
     |             | string
     |
-    | github.com/summit-fi/goverter/execution.Output
+    | github.com/emp1re/goverter-test/execution.Output
 
     TypeMismatch: Cannot convert int to string
 

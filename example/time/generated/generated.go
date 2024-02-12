@@ -3,7 +3,7 @@
 
 package generated
 
-import time "github.com/summit-fi/goverter/example/time"
+import time "github.com/emp1re/goverter-test/example/time"
 
 type ConverterImpl struct{}
 

@@ -20,13 +20,13 @@ converter comments.
 Old Call
 
 ```bash
-$ goverter -wrapErrors -ignoreUnexportedFields github.com/summit-fi/goverter/example/simple
+$ goverter -wrapErrors -ignoreUnexportedFields github.com/emp1re/goverter-test/example/simple
 ```
 
 New Call
 
 ```bash
-$ goverter gen -g wrapErrors -g ignoreUnexported github.com/summit-fi/goverter/example/simple
+$ goverter gen -g wrapErrors -g ignoreUnexported github.com/emp1re/goverter-test/example/simple
 ```
 
 #### Full flag changes

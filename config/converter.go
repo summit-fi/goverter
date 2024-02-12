@@ -4,8 +4,8 @@ import (
 	"go/types"
 	"strings"
 
-	"github.com/summit-fi/goverter/method"
-	"github.com/summit-fi/goverter/pkgload"
+	"github.com/emp1re/goverter-test/method"
+	"github.com/emp1re/goverter-test/pkgload"
 )
 
 const (

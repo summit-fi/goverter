@@ -3,7 +3,7 @@
 
 package generated
 
-import structcomment "github.com/summit-fi/goverter/example/struct-comment"
+import structcomment "github.com/emp1re/goverter-test/example/struct-comment"
 
 /*
 MyConverterImpl

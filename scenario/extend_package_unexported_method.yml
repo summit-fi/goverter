@@ -9,7 +9,7 @@ input:
         package structs
 
         // goverter:converter
-        // goverter:extend github.com/summit-fi/goverter/execution/convert:stringToBool
+        // goverter:extend github.com/emp1re/goverter-test/execution/convert:stringToBool
         type Converter interface {
             Convert(source Input) (Output, error)
         }
@@ -22,9 +22,9 @@ input:
 error: |-
     error parsing 'goverter:extend' at
         @workdir/input.go:5:1
-        github.com/summit-fi/goverter/execution.Converter
+        github.com/emp1re/goverter-test/execution.Converter
 
     error parsing type:
-        func github.com/summit-fi/goverter/execution/convert.stringToBool(s string) bool
+        func github.com/emp1re/goverter-test/execution/convert.stringToBool(s string) bool
 
     must be exported

@@ -4,9 +4,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/summit-fi/goverter/comments"
-	"github.com/summit-fi/goverter/config"
-	"github.com/summit-fi/goverter/generator"
+	"github.com/emp1re/goverter-test/comments"
+	"github.com/emp1re/goverter-test/config"
+	"github.com/emp1re/goverter-test/generator"
 )
 
 // GenerateConfig the config for generating a converter.
@@ -54,7 +54,6 @@ func generateConvertersRaw(c *GenerateConfig) (map[string][]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	return generator.Generate(converters, generator.Config{
 		WorkingDir:      c.WorkingDir,
 		BuildConstraint: c.OutputBuildConstraint,

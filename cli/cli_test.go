@@ -4,10 +4,10 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/emp1re/goverter-test/cli"
+	"github.com/emp1re/goverter-test/config"
 	"github.com/jmattheis/goverter"
 	"github.com/stretchr/testify/require"
-	"github.com/summit-fi/goverter/cli"
-	"github.com/summit-fi/goverter/config"
 )
 
 func TestError(t *testing.T) {

@@ -5,13 +5,14 @@ import (
 	"go/types"
 	"strings"
 
-	"github.com/summit-fi/goverter/method"
-	"github.com/summit-fi/goverter/pkgload"
+	"github.com/emp1re/goverter-test/method"
+	"github.com/emp1re/goverter-test/pkgload"
 )
 
 const (
 	configMap     = "map"
 	configDefault = "default"
+	configAgg     = "agg"
 )
 
 type Method struct {
@@ -89,6 +90,28 @@ func parseMethodLine(loader *pkgload.PackageLoader, c *Converter, m *Method, val
 			}
 			f.Function, err = loader.GetOne(c.Package, custom, opts)
 		}
+	case configAgg:
+		fieldSetting = true
+		var source, target, custom string
+
+		source, target, custom, err = parseMethodAgg(rest)
+		if err != nil {
+			return err
+		}
+		f := m.Field(target)
+		f.Source = source
+
+		if custom != "" {
+			opts := &method.ParseOpts{
+				ErrorPrefix:       "error parsing type",
+				OutputPackagePath: c.OutputPackagePath,
+				Converter:         c.Type,
+				Params:            method.ParamsOptional,
+			}
+
+			f.Function, err = loader.GetOne(c.Package, custom, opts)
+
+		}
 	case "ignore":
 		fieldSetting = true
 		fields := strings.Fields(rest)
@@ -116,7 +139,30 @@ func parseMethodLine(loader *pkgload.PackageLoader, c *Converter, m *Method, val
 	}
 	return err
 }
+func parseMethodAgg(remaining string) (source, target, custom string, err error) {
+	parts := strings.SplitN(remaining, "|", 2)
+	if len(parts) == 2 {
+		custom = strings.TrimSpace(parts[1])
+	}
+	fields := strings.Fields(parts[0])
+	switch len(fields) {
+	case 1:
+		target = fields[0]
+	case 2:
+		source = fields[0]
+		target = fields[1]
 
+	case 0:
+		err = fmt.Errorf("missing target field")
+	default:
+		err = fmt.Errorf("too many fields expected at most 2 fields got %d: %s", len(fields), remaining)
+	}
+	if err == nil && strings.ContainsRune(target, '.') {
+		err = fmt.Errorf("the mapping target %q must be a field name but was a path.\nDots \".\" are not allowed.", target)
+	}
+
+	return source, target, custom, err
+}
 func parseMethodMap(remaining string) (source, target, custom string, err error) {
 	parts := strings.SplitN(remaining, "|", 2)
 	if len(parts) == 2 {

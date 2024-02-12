@@ -8,11 +8,11 @@ import (
 
 	"github.com/dave/jennifer/jen"
 
-	"github.com/summit-fi/goverter/builder"
-	"github.com/summit-fi/goverter/config"
-	"github.com/summit-fi/goverter/method"
-	"github.com/summit-fi/goverter/namer"
-	"github.com/summit-fi/goverter/xtype"
+	"github.com/emp1re/goverter-test/builder"
+	"github.com/emp1re/goverter-test/config"
+	"github.com/emp1re/goverter-test/method"
+	"github.com/emp1re/goverter-test/namer"
+	"github.com/emp1re/goverter-test/xtype"
 )
 
 type generatedMethod struct {
@@ -47,6 +47,7 @@ func (g *generator) buildMethods(f *jen.File) error {
 		err := g.buildMethod(genMethod, builder.NoWrap)
 		if err != nil {
 			err = err.Lift(&builder.Path{
+
 				SourceID:   "source",
 				TargetID:   "target",
 				SourceType: genMethod.Source.String,
@@ -82,7 +83,6 @@ func (g *generator) buildMethod(genMethod *generatedMethod, errWrapper builder.E
 	sourceID := jen.Id("source")
 	source := genMethod.Source
 	target := genMethod.Target
-
 	returns := []jen.Code{target.TypeAsJen()}
 	if genMethod.ReturnError {
 		returns = append(returns, jen.Id("error"))

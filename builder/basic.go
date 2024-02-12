@@ -3,7 +3,7 @@ package builder
 import (
 	"github.com/dave/jennifer/jen"
 
-	"github.com/summit-fi/goverter/xtype"
+	"github.com/emp1re/goverter-test/xtype"
 )
 
 // Basic handles basic data types.

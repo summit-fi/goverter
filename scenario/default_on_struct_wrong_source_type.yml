@@ -19,16 +19,16 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/summit-fi/goverter/execution.Converter).Convert(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
+        func (github.com/emp1re/goverter-test/execution.Converter).Convert(source github.com/emp1re/goverter-test/execution.Input) github.com/emp1re/goverter-test/execution.Output
 
-    | github.com/summit-fi/goverter/execution.Input
+    | github.com/emp1re/goverter-test/execution.Input
     |
     source
     target
     |
-    | github.com/summit-fi/goverter/execution.Output
+    | github.com/emp1re/goverter-test/execution.Output
 
     Error using method:
-        func github.com/summit-fi/goverter/execution.NewOutput(string) github.com/summit-fi/goverter/execution.Output
+        func github.com/emp1re/goverter-test/execution.NewOutput(string) github.com/emp1re/goverter-test/execution.Output
 
-    Method source type mismatches with conversion source: string != github.com/summit-fi/goverter/execution.Input
+    Method source type mismatches with conversion source: string != github.com/emp1re/goverter-test/execution.Input
