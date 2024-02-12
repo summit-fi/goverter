@@ -11,6 +11,7 @@ func parseCommand(value string) (string, string) {
 		return parts[0], parts[1]
 	}
 	return parts[0], ""
+
 }
 
 func parseBool(remaining string) (bool, error) {

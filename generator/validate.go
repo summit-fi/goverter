@@ -5,6 +5,7 @@ import (
 )
 
 func validateMethods(lookup map[xtype.Signature]*generatedMethod) error {
+	//fmt.Println("lookup", lookup)
 	//for _, genMethod := range lookup {
 	//	if genMethod.Explicit && len(genMethod.RawFieldSettings) > 0 {
 	//		isTargetStructPointer := genMethod.Target.Pointer && genMethod.Parameters.Target.PointerInner.Struct

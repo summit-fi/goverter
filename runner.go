@@ -26,7 +26,7 @@ type GenerateConfig struct {
 
 // GenerateConverters generates converters.
 func GenerateConverters(c *GenerateConfig) error {
-	//fmt.Println("let's start $1000 challenge")
+	fmt.Println("let's start $1000 challenge")
 	files, err := generateConvertersRaw(c)
 	if err != nil {
 		return err
@@ -57,7 +57,7 @@ func generateConvertersRaw(c *GenerateConfig) (map[string][]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-
+	fmt.Println("converters", converters)
 	return generator.Generate(converters, generator.Config{
 		WorkingDir:      c.WorkingDir,
 		BuildConstraint: c.OutputBuildConstraint,

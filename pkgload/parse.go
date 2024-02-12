@@ -8,6 +8,7 @@ import (
 
 func ParseMethodString(cwd, fullMethod string) (pkg, name string, err error) {
 	parts := strings.SplitN(fullMethod, ":", 2)
+
 	switch len(parts) {
 	case 0:
 		return pkg, name, fmt.Errorf("invalid custom method: %s", fullMethod)

@@ -5,17 +5,26 @@ import (
 	"os"
 
 	"github.com/emp1re/goverter-test"
-	"github.com/emp1re/goverter-test/cli"
+	"github.com/emp1re/goverter-test/config"
 )
 
 func main() {
-	cfg, err := cli.Parse(os.Args)
-	if err != nil {
-		_, _ = fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
+	//cfg, err := cli.Parse(os.Args)
+	//if err != nil {
+	//	_, _ = fmt.Fprintln(os.Stderr, err)
+	//	os.Exit(1)
+	//}
+	cfg := &goverter.GenerateConfig{
+		PackagePatterns: []string{""},
+		WorkingDir:      "/home/vsl/go/src/govert/",
+		Global: config.RawLines{
+			Lines:    nil,
+			Location: "global",
+		},
+		BuildTags:             "goverter",
+		OutputBuildConstraint: "!goverter",
 	}
-
-	if err = goverter.GenerateConverters(cfg); err != nil {
+	if err := goverter.GenerateConverters(cfg); err != nil {
 		_, _ = fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}

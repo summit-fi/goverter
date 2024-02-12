@@ -2,6 +2,8 @@ package builder
 
 import (
 	"fmt"
+	"regexp"
+	"strings"
 
 	"github.com/dave/jennifer/jen"
 
@@ -13,7 +15,7 @@ type Agg struct{}
 
 // Matches returns true, if the builder can create handle the given types.
 func (*Agg) Matches(_ *MethodContext, source, target *xtype.Type) bool {
-	return source.List && target.List
+	return source.List && !source.Pointer && target.List
 }
 
 // Build creates conversion source code for the given source and target type.
@@ -52,9 +54,7 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 	//newID := jen.Id(name)
 	//ctx.SetErrorTargetVar(jen.Nil())
 	//targetSlice := ctx.Name(target.ID())
-	//index := ctx.Index()
-	//
-	//indexedSource := xtype.VariableID(sourceID.Code.Clone().Index(jen.Id(index)))
+
 	//
 	//errWrapper := Wrap("error setting index %d", jen.Id(index))
 	//forBlock, newID, err := gen.Build(ctx, indexedSource, source.ListInner, target.ListInner, errWrapper)
@@ -86,10 +86,36 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 	//	}
 	//}
 	//
+	index := ctx.Index()
+
+	//indexedSource := xtype.VariableID(sourceID.Code.Clone().Index(jen.Id(index)))
+	indexedSource := xtype.VariableID(jen.Id("v"))
+
+	errWrapper := Wrap("error setting index %d", jen.Id(index))
+	_, id, err := gen.Build(ctx, indexedSource, source.ListInner, target.ListInner, errWrapper)
+	if err != nil {
+		return nil, nil, err.Lift(&Path{
+			SourceID:   "",
+			SourceType: source.ListInner.String,
+			TargetID:   "",
+			TargetType: target.ListInner.String,
+		})
+	}
+
 	//return stmt, xtype.VariableID(jen.Id(targetSlice)), nil
 	name := ctx.Name(target.ID())
 	sN := ctx.Name(source.ID())
+	fmt.Println("#########################")
+
+	fmt.Println("listInner", source.ListInner.StructType.String())
+
+	fmt.Println("ctx ----->", ctx.Conf.Definition)
+	fmt.Println("gen", gen)
 	ctx.SetErrorTargetVar(jen.Nil())
+	re := regexp.MustCompile(`\[\]`)
+	str := re.ReplaceAllString(target.String, "")
+	fmt.Println("source", str)
+	fmt.Println("sourseID")
 	fmt.Println("source", source)
 	fmt.Println("target", target)
 	fmt.Println("source.ID", source.ID())
@@ -97,10 +123,77 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 	fmt.Println("sourceID", sourceID)
 	fmt.Println("target.ID", name)
 	fmt.Println("source.ID", sN)
+	fmt.Println("ctx--->", ctx.Conf)
 
-	smtp := append([]jen.Code{}, jen.Id("m").Op(":=").Map(jen.Int()).Add(target.TypeAsJen()).Values())
+	key, value := ctx.Map()
+	fmt.Println("ctx.Map", key, value)
 
-	return smtp, xtype.VariableID(jen.Id(target.String)), nil
+	targetSlice := ctx.Name(target.ID())
+
+	fmt.Println("targetSlice", targetSlice)
+
+	split := strings.Split(ctx.Conf.RawFieldSettings[0], " ")
+	mark := split[1]
+	mark2 := split[2]
+	resulBlock := []jen.Code{
+		jen.List(jen.Id("found"), jen.Id("ok")).Op(":=").Id("i").Index(jen.Id("v").Dot(mark)),
+		jen.If(jen.Op("!").Id("ok")).Block(
+			jen.Continue(),
+		),
+		jen.Delete(jen.Id("i"), jen.Id("v").Dot(mark)),
+		jen.Id("result").Op("=").Append(jen.Id("result"), jen.Id("found")),
+	}
+	block := []jen.Code{
+		jen.If(
+			jen.List(jen.Id("_"), jen.Id("ok")).Op(":=").Id("i").Index(jen.Id("v").Dot(mark)),
+			jen.Id("!ok"),
+		).Block(
+			jen.Id("i").Index(jen.Id("v").Dot(mark)).Op("=").Add(id.Code),
+		),
+		jen.Id("obj").Op(":=").Id("i").Index(jen.Id("v").Dot(mark)),
+		jen.Id("obj").Dot(mark2).Op("=").Append(jen.Id("obj").Dot(mark2), jen.Id("v").Dot(mark2)),
+		jen.Id("i").Index(jen.Id("v").Dot(mark)).Op("=").Id("obj"),
+	}
+	var xType xtype.Type
+	//sourseStruct := split[2]
+	for i := 0; i < source.ListInner.StructType.NumFields(); i++ {
+		if mark == source.ListInner.StructType.Field(i).Name() {
+			xType = xtype.Type{
+				String: source.ListInner.StructType.Field(i).Name(),
+				T:      source.ListInner.StructType.Field(i).Type(),
+			}
+		}
+	}
+	targetStruct := target.ListInner.StructType
+	fmt.Println("targetStruct", targetStruct)
+	fmt.Println(targetStruct.String())
+	var targeType xtype.Type
+	for i := 0; i < target.ListInner.StructType.NumFields(); i++ {
+		if mark2 == target.ListInner.StructType.Field(i).Name() {
+			targeType = xtype.Type{
+				String: target.ListInner.StructType.Field(i).Name(),
+				T:      target.ListInner.StructType.Field(i).Type(),
+			}
+		}
+	}
+	fmt.Println("targeType", targeType)
+	fmt.Println(source.ListInner)
+	list := source.ListInner.StructType.Field(0)
+	fmt.Println("list", list.Type())
+
+	//newVar jen.Code{
+	//	jen.Var().Id(str).Add(target.TypeAsJen()),
+	//}
+	smtp := []jen.Code{
+		jen.Var().Id("result").Id(target.String),
+		//jen.Var().Id("obj").Id(target.ListInner.String),
+		jen.Id("i").Op(":=").Map(xType.TypeAsJen()).Add(jen.Id(str)).Values(),
+		jen.For(jen.List(jen.Id("_"), jen.Id("v")).Op(":=").Range().Id("source")).Block(block...),
+		jen.For(jen.List(jen.Id("_"), jen.Id("v")).Op(":=").Range().Id("source")).Block(resulBlock...),
+	}
+	//smtp = append(smtp, forBlock...)
+
+	return smtp, xtype.VariableID(jen.Id("result")), nil
 
 	//fmt.Println("target.ID", target.ID())
 	//fmt.Println("target.ID().Code", target.ID().Code)

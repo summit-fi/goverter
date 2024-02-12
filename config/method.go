@@ -93,6 +93,7 @@ func parseMethodLine(loader *pkgload.PackageLoader, c *Converter, m *Method, val
 	case configAgg:
 		fieldSetting = true
 		var source, target, custom string
+
 		source, target, custom, err = parseMethodAgg(rest)
 		if err != nil {
 			return err
@@ -107,7 +108,9 @@ func parseMethodLine(loader *pkgload.PackageLoader, c *Converter, m *Method, val
 				Converter:         c.Type,
 				Params:            method.ParamsOptional,
 			}
+
 			f.Function, err = loader.GetOne(c.Package, custom, opts)
+
 		}
 	case "ignore":
 		fieldSetting = true
@@ -137,11 +140,11 @@ func parseMethodLine(loader *pkgload.PackageLoader, c *Converter, m *Method, val
 	return err
 }
 func parseMethodAgg(remaining string) (source, target, custom string, err error) {
-	parts := strings.SplitN(remaining, "|", 2)
-	if len(parts) == 2 {
+	parts := strings.SplitN(remaining, "|", 3)
+	fmt.Println("parseMethodPars", parts)
+	if len(parts) == 3 {
 		custom = strings.TrimSpace(parts[1])
 	}
-
 	fields := strings.Fields(parts[0])
 	switch len(fields) {
 	case 1:
@@ -149,6 +152,10 @@ func parseMethodAgg(remaining string) (source, target, custom string, err error)
 	case 2:
 		source = fields[0]
 		target = fields[1]
+	case 3:
+		source = fields[0]
+		target = fields[1]
+		custom = fields[2]
 	case 0:
 		err = fmt.Errorf("missing target field")
 	default:
@@ -157,6 +164,7 @@ func parseMethodAgg(remaining string) (source, target, custom string, err error)
 	if err == nil && strings.ContainsRune(target, '.') {
 		err = fmt.Errorf("the mapping target %q must be a field name but was a path.\nDots \".\" are not allowed.", target)
 	}
+	fmt.Println("parseMethodAgg", source, target, custom, err)
 	return source, target, custom, err
 }
 func parseMethodMap(remaining string) (source, target, custom string, err error) {
