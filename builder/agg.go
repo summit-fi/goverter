@@ -111,6 +111,10 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 		empty = "false"
 	case "[]rune":
 		empty = "0"
+	default:
+		return nil, nil, &Error{
+			Cause: "Invalid settings for goverter:agg -> expected different type for target field",
+		}
 
 	}
 
