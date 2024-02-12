@@ -141,7 +141,6 @@ func parseMethodLine(loader *pkgload.PackageLoader, c *Converter, m *Method, val
 }
 func parseMethodAgg(remaining string) (source, target, custom string, err error) {
 	parts := strings.SplitN(remaining, "|", 3)
-	fmt.Println("parseMethodPars", parts)
 	if len(parts) == 3 {
 		custom = strings.TrimSpace(parts[1])
 	}
@@ -164,7 +163,7 @@ func parseMethodAgg(remaining string) (source, target, custom string, err error)
 	if err == nil && strings.ContainsRune(target, '.') {
 		err = fmt.Errorf("the mapping target %q must be a field name but was a path.\nDots \".\" are not allowed.", target)
 	}
-	fmt.Println("parseMethodAgg", source, target, custom, err)
+
 	return source, target, custom, err
 }
 func parseMethodMap(remaining string) (source, target, custom string, err error) {

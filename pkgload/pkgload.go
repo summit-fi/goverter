@@ -79,7 +79,6 @@ the golang regexp pattern %q and a convert signature`, pkgName, name)
 
 func (g *PackageLoader) getPkg(pkgName string) (*packages.Package, error) {
 	pkg := g.lookup[pkgName]
-	fmt.Println("pkg", pkg)
 	if pkg == nil {
 		return nil, fmt.Errorf("failed to load package %q:\nmake sure it's a valid golang package", pkgName)
 	}
@@ -97,7 +96,6 @@ func (g *PackageLoader) getPkg(pkgName string) (*packages.Package, error) {
 
 func (g *PackageLoader) GetOneRaw(pkgName, name string) (types.Object, error) {
 	pkg, err := g.getPkg(pkgName)
-	fmt.Println("pkg", pkg)
 	if err != nil {
 		return nil, err
 	}

@@ -1,7 +1,6 @@
 package goverter
 
 import (
-	"fmt"
 	"os"
 	"path/filepath"
 
@@ -26,7 +25,6 @@ type GenerateConfig struct {
 
 // GenerateConverters generates converters.
 func GenerateConverters(c *GenerateConfig) error {
-	fmt.Println("let's start $1000 challenge")
 	files, err := generateConvertersRaw(c)
 	if err != nil {
 		return err
@@ -36,7 +34,6 @@ func GenerateConverters(c *GenerateConfig) error {
 }
 
 func generateConvertersRaw(c *GenerateConfig) (map[string][]byte, error) {
-	fmt.Println("asd")
 	rawConverters, err := comments.ParseDocs(comments.ParseDocsConfig{
 		BuildTags:      c.BuildTags,
 		PackagePattern: c.PackagePatterns,
@@ -57,7 +54,6 @@ func generateConvertersRaw(c *GenerateConfig) (map[string][]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println("converters", converters)
 	return generator.Generate(converters, generator.Config{
 		WorkingDir:      c.WorkingDir,
 		BuildConstraint: c.OutputBuildConstraint,

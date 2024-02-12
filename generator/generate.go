@@ -1,7 +1,6 @@
 package generator
 
 import (
-	"fmt"
 	"strings"
 
 	"github.com/dave/jennifer/jen"
@@ -35,9 +34,6 @@ var BuildSteps = []builder.Builder{
 // Generate generates a jen.File containing converters.
 func Generate(converters []*config.Converter, c Config) (map[string][]byte, error) {
 	manager := &fileManager{Files: map[string]*managedFile{}}
-	for _, v := range converters {
-		fmt.Println("v", v)
-	}
 	for _, converter := range converters {
 		jenFile, err := manager.Get(converter, c)
 		if err != nil {
@@ -54,25 +50,9 @@ func Generate(converters []*config.Converter, c Config) (map[string][]byte, erro
 
 func generateConverter(converter *config.Converter, c Config, f *jen.File) error {
 	gen := setupGenerator(converter)
-	cv := converter.Methods
 
-	for _, method := range cv {
-
-		if len(method.RawFieldSettings) != 0 {
-			split := strings.Split(method.RawFieldSettings[0], " ")
-			switch split[0] {
-			case "agg":
-			//if err := validateMethods(gen.lookup); err != nil {
-			//	return err
-			//}
-			default:
-				if err := validateMethods(gen.lookup); err != nil {
-					return err
-				}
-
-			}
-
-		}
+	if err := validateMethods(gen.lookup); err != nil {
+		return err
 	}
 
 	if len(converter.Comments) > 0 {

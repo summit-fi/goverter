@@ -83,8 +83,6 @@ func (g *generator) buildMethod(genMethod *generatedMethod, errWrapper builder.E
 	sourceID := jen.Id("source")
 	source := genMethod.Source
 	target := genMethod.Target
-	fmt.Println("sourceBuildMethod", source)
-	fmt.Println("targetBuildMethod", target)
 	returns := []jen.Code{target.TypeAsJen()}
 	if genMethod.ReturnError {
 		returns = append(returns, jen.Id("error"))
