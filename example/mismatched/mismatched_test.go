@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/emp1re/goverter-test/example/mismatched"
-	"github.com/emp1re/goverter-test/example/mismatched/generated"
 	"github.com/stretchr/testify/require"
+	"github.com/summit-fi/goverter/example/mismatched"
+	"github.com/summit-fi/goverter/example/mismatched/generated"
 )
 
 func TestConverter(t *testing.T) {

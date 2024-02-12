@@ -8,7 +8,7 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/emp1re/goverter-test/execution.Converter).ConvertString(source func() string) func() string
+        func (github.com/summit-fi/goverter/execution.Converter).ConvertString(source func() string) func() string
 
     | func() string
     |

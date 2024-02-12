@@ -1,6 +1,6 @@
 package generated
 
-import agg "github.com/emp1re/goverter-test/example/agg"
+import agg "github.com/summit-fi/goverter/example/agg"
 
 type ConverterImpl struct{}
 

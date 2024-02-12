@@ -26,7 +26,7 @@ success:
 
         import (
         	"fmt"
-        	execution "github.com/emp1re/goverter-test/execution"
+        	execution "github.com/summit-fi/goverter/execution"
         	"strconv"
         )
 

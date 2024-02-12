@@ -3,7 +3,7 @@
 
 package generated
 
-import useunderlyingtypemethods "github.com/emp1re/goverter-test/example/use-underlying-type-methods"
+import useunderlyingtypemethods "github.com/summit-fi/goverter/example/use-underlying-type-methods"
 
 type ConverterImpl struct{}
 

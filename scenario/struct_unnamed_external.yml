@@ -30,7 +30,7 @@ success:
 
         import (
         	"database/sql"
-        	execution "github.com/emp1re/goverter-test/execution"
+        	execution "github.com/summit-fi/goverter/execution"
         )
 
         type ConverterImpl struct{}

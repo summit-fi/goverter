@@ -3,9 +3,9 @@ package errors_test
 import (
 	"testing"
 
-	"github.com/emp1re/goverter-test/example/errors"
-	"github.com/emp1re/goverter-test/example/errors/generated"
 	"github.com/stretchr/testify/require"
+	"github.com/summit-fi/goverter/example/errors"
+	"github.com/summit-fi/goverter/example/errors/generated"
 )
 
 func TestConverterSuccess(t *testing.T) {

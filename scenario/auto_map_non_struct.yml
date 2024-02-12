@@ -21,15 +21,15 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/emp1re/goverter-test/execution.Converter).Convert(github.com/emp1re/goverter-test/execution.Person) github.com/emp1re/goverter-test/execution.FlatPerson
+        func (github.com/summit-fi/goverter/execution.Converter).Convert(github.com/summit-fi/goverter/execution.Person) github.com/summit-fi/goverter/execution.FlatPerson
 
-    | github.com/emp1re/goverter-test/execution.Person
+    | github.com/summit-fi/goverter/execution.Person
     |
     |      | string
     |      |
     source.Address
     target
     |
-    | github.com/emp1re/goverter-test/execution.FlatPerson
+    | github.com/summit-fi/goverter/execution.FlatPerson
 
     Address is not a struct or struct pointer

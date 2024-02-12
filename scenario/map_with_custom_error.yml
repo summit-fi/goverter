@@ -21,9 +21,9 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/emp1re/goverter-test/execution.Converter).ConvertPerson(source github.com/emp1re/goverter-test/execution.Input) github.com/emp1re/goverter-test/execution.Output
+        func (github.com/summit-fi/goverter/execution.Converter).ConvertPerson(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
 
-    | github.com/emp1re/goverter-test/execution.Input
+    | github.com/summit-fi/goverter/execution.Input
     |
     |      | string
     |      |
@@ -32,9 +32,9 @@ error: |-
     |      |
     |      | string
     |
-    | github.com/emp1re/goverter-test/execution.Output
+    | github.com/summit-fi/goverter/execution.Output
 
     Error using method:
-        func github.com/emp1re/goverter-test/execution.Enhance(s int) string
+        func github.com/summit-fi/goverter/execution.Enhance(s int) string
 
     Method source type mismatches with conversion source: int != string

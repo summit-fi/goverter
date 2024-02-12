@@ -34,7 +34,7 @@ OPTIONS:
 Examples:
   goverter gen ./example/simple ./example/complex
   goverter gen ./example/...
-  goverter gen github.com/emp1re/goverter-test/example/simple
+  goverter gen github.com/summit-fi/goverter/example/simple
   goverter gen -g 'ignoreMissing no' -g 'skipCopySameType' ./simple
 
 Documentation:

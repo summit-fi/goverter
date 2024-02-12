@@ -9,6 +9,6 @@ input:
 error: |-
     error parsing 'goverter:extend' at
         @workdir/input.go:5:1
-        github.com/emp1re/goverter-test/execution.Converter
+        github.com/summit-fi/goverter/execution.Converter
 
     could not parse name as regexp "(": error parsing regexp: missing closing ): `(`

@@ -5,8 +5,8 @@
 <h1 align="center">goverter</h1>
 <p align="center"><i>a "type-safe Go converter" generator</i></p>
 <p align="center">
-    <a href="https://github.com/emp1re/goverter-test/actions/workflows/build.yml">
-        <img alt="Build Status" src="https://github.com/emp1re/goverter-test/actions/workflows/build.yml/badge.svg">
+    <a href="https://github.com/summit-fi/goverter/actions/workflows/build.yml">
+        <img alt="Build Status" src="https://github.com/summit-fi/goverter/actions/workflows/build.yml/badge.svg">
     </a>
      <a href="https://codecov.io/gh/jmattheis/goverter">
         <img alt="codecov" src="https://codecov.io/gh/jmattheis/goverter/branch/main/graph/badge.svg">
@@ -17,7 +17,7 @@
     <a href="https://pkg.go.dev/github.com/jmattheis/goverter">
         <img alt="Go Reference" src="https://pkg.go.dev/badge/github.com/jmattheis/goverter.svg">
     </a>
-    <a href="https://github.com/emp1re/goverter-test/releases/latest">
+    <a href="https://github.com/summit-fi/goverter/releases/latest">
         <img alt="latest release" src="https://img.shields.io/github/release/jmattheis/goverter.svg">
     </a>
 </p>
@@ -92,7 +92,7 @@ use reflection.
 1. Run `goverter`:
 
     ```bash
-    $ go run github.com/emp1re/goverter-test/cmd/goverter@latest gen ./
+    $ go run github.com/summit-fi/goverter/cmd/goverter@latest gen ./
     ```
 
     It's recommended to use an explicit version instead of `latest`. See

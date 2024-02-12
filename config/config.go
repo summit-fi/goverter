@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/emp1re/goverter-test/pkgload"
+	"github.com/summit-fi/goverter/pkgload"
 )
 
 type RawLines struct {

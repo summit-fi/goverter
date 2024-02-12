@@ -23,11 +23,11 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/emp1re/goverter-test/execution.Converter).Convert(github.com/emp1re/goverter-test/execution.Person) github.com/emp1re/goverter-test/execution.FlatPerson
+        func (github.com/summit-fi/goverter/execution.Converter).Convert(github.com/summit-fi/goverter/execution.Person) github.com/summit-fi/goverter/execution.FlatPerson
 
-    | github.com/emp1re/goverter-test/execution.Person
+    | github.com/summit-fi/goverter/execution.Person
     |
-    |      | *github.com/emp1re/goverter-test/execution.Address
+    |      | *github.com/summit-fi/goverter/execution.Address
     |      |
     |      |       | *string (It is a pointer because the nested property in the goverter:map was a pointer)
     |      |       |
@@ -36,7 +36,7 @@ error: |-
     |              |
     |              | string
     |
-    | github.com/emp1re/goverter-test/execution.FlatPerson
+    | github.com/summit-fi/goverter/execution.FlatPerson
 
     TypeMismatch: Cannot convert *string to string
     It is unclear how nil should be handled in the pointer to non pointer conversion.

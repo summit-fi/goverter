@@ -23,18 +23,18 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/emp1re/goverter-test/execution.Converter).Convert2(github.com/emp1re/goverter-test/execution.Input2) github.com/emp1re/goverter-test/execution.Output2
+        func (github.com/summit-fi/goverter/execution.Converter).Convert2(github.com/summit-fi/goverter/execution.Input2) github.com/summit-fi/goverter/execution.Output2
 
-    | github.com/emp1re/goverter-test/execution.Input2
+    | github.com/summit-fi/goverter/execution.Input2
     |
-    |      | github.com/emp1re/goverter-test/execution.Input
+    |      | github.com/summit-fi/goverter/execution.Input
     |      |
     source.Value
     target.Value
     |      |
-    |      | github.com/emp1re/goverter-test/execution.Output
+    |      | github.com/summit-fi/goverter/execution.Output
     |
-    | github.com/emp1re/goverter-test/execution.Output2
+    | github.com/summit-fi/goverter/execution.Output2
 
     Overlapping struct settings found.
 
@@ -42,7 +42,7 @@ error: |-
         goverter:map FullName Name
 
     from the "Convert" method to a newly created method with this signature:
-        func(github.com/emp1re/goverter-test/execution.Input) github.com/emp1re/goverter-test/execution.Output
+        func(github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
 
     Goverter won't use "Convert" inside the current conversion method
     and therefore the defined field settings would be ignored.

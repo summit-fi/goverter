@@ -12,7 +12,7 @@ input:
         package structs
 
         // goverter:converter
-        // goverter:extend github.com/emp1re/goverter-test/execution/convert:.*
+        // goverter:extend github.com/summit-fi/goverter/execution/convert:.*
         type Converter interface {
             Convert(source Input) (Output, error)
         }
@@ -30,8 +30,8 @@ success:
         package generated
 
         import (
-        	execution "github.com/emp1re/goverter-test/execution"
-        	convert "github.com/emp1re/goverter-test/execution/convert"
+        	execution "github.com/summit-fi/goverter/execution"
+        	convert "github.com/summit-fi/goverter/execution/convert"
         )
 
         type ConverterImpl struct{}

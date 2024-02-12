@@ -17,15 +17,15 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/emp1re/goverter-test/execution.Converter).Convert(source github.com/emp1re/goverter-test/execution.Input) github.com/emp1re/goverter-test/execution.Output
+        func (github.com/summit-fi/goverter/execution.Converter).Convert(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
 
-    | github.com/emp1re/goverter-test/execution.Input
+    | github.com/summit-fi/goverter/execution.Input
     |
     |      | ???
     |      |
     source.Name3
     target
     |
-    | github.com/emp1re/goverter-test/execution.Output
+    | github.com/summit-fi/goverter/execution.Output
 
     Cannot find the mapped field on the source entry: "Name3" does not exist.

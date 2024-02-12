@@ -24,7 +24,7 @@ export default defineConfig({
   themeConfig: {
     logo: "favicon.svg",
     editLink: {
-      pattern: "https://github.com/emp1re/goverter-test/tree/main/docs/:path",
+      pattern: "https://github.com/summit-fi/goverter/tree/main/docs/:path",
     },
     search: {
       provider: "algolia",

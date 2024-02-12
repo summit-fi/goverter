@@ -18,6 +18,6 @@ input:
 error: |-
     error parsing 'goverter:map' at
         @workdir/input.go:6:5
-        func (github.com/emp1re/goverter-test/execution.Converter).Convert(source github.com/emp1re/goverter-test/execution.Input) github.com/emp1re/goverter-test/execution.Output
+        func (github.com/summit-fi/goverter/execution.Converter).Convert(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
 
-    "PluckAgeInt" does not exist in package "github.com/emp1re/goverter-test/execution"
+    "PluckAgeInt" does not exist in package "github.com/summit-fi/goverter/execution"

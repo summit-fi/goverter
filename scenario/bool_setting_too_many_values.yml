@@ -13,6 +13,6 @@ input:
 error: |-
     error parsing 'goverter:useZeroValueOnPointerInconsistency' at
         @workdir/input.go:5:1
-        github.com/emp1re/goverter-test/execution.Converter
+        github.com/summit-fi/goverter/execution.Converter
 
     expected at most one value but got 2: []string{"1", "2"}

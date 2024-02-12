@@ -9,6 +9,6 @@ input:
 error: |-
     error parsing 'goverter:extend' at
         @workdir/input.go:5:1
-        github.com/emp1re/goverter-test/execution.Converter
+        github.com/summit-fi/goverter/execution.Converter
 
-    "HelloWorld" does not exist in package "github.com/emp1re/goverter-test/execution"
+    "HelloWorld" does not exist in package "github.com/summit-fi/goverter/execution"

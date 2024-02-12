@@ -12,9 +12,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"gopkg.in/yaml.v3"
-
-	"github.com/emp1re/goverter-test/config"
+	"github.com/summit-fi/goverter/config"
 )
 
 func TestScenario(t *testing.T) {
@@ -43,7 +41,7 @@ func TestScenario(t *testing.T) {
 			scenario := Scenario{}
 			err = yaml.Unmarshal(scenarioFileBytes, &scenario)
 			require.NoError(t, err)
-			err = os.WriteFile(filepath.Join(testWorkDir, "go.mod"), []byte("module github.com/emp1re/goverter-test/execution\ngo 1.16"), os.ModePerm)
+			err = os.WriteFile(filepath.Join(testWorkDir, "go.mod"), []byte("module github.com/summit-fi/goverter/execution\ngo 1.16"), os.ModePerm)
 			require.NoError(t, err)
 
 			for name, content := range scenario.Input {
@@ -53,11 +51,11 @@ func TestScenario(t *testing.T) {
 				err = os.WriteFile(filepath.Join(testWorkDir, name), []byte(content), os.ModePerm)
 				require.NoError(t, err)
 			}
-			global := append([]string{"output:package github.com/emp1re/goverter-test/execution/generated"}, scenario.Global...)
+			global := append([]string{"output:package github.com/summit-fi/goverter/execution/generated"}, scenario.Global...)
 
 			patterns := scenario.Patterns
 			if len(patterns) == 0 {
-				patterns = append(patterns, "github.com/emp1re/goverter-test/execution")
+				patterns = append(patterns, "github.com/summit-fi/goverter/execution")
 			}
 
 			files, err := generateConvertersRaw(

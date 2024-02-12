@@ -6,8 +6,8 @@ import (
 
 	"github.com/dave/jennifer/jen"
 
-	"github.com/emp1re/goverter-test/builder"
-	"github.com/emp1re/goverter-test/config"
+	"github.com/summit-fi/goverter/builder"
+	"github.com/summit-fi/goverter/config"
 )
 
 // Config the generate config.

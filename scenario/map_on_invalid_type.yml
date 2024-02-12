@@ -17,7 +17,7 @@ input:
         }
 error: |-
     Invalid struct field mapping on method:
-        func (github.com/emp1re/goverter-test/execution.Converter).ConvertPerson(source []github.com/emp1re/goverter-test/execution.Person) []github.com/emp1re/goverter-test/execution.APIPerson
+        func (github.com/summit-fi/goverter/execution.Converter).ConvertPerson(source []github.com/summit-fi/goverter/execution.Person) []github.com/summit-fi/goverter/execution.APIPerson
 
     Field mappings like goverter:map or goverter:ignore may only be set on struct or struct pointers.
     See https://goverter.jmattheis.de/guide/configure-nested

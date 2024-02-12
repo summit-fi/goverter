@@ -9,7 +9,7 @@ input:
 
         // goverter:converter
         type Converter interface {
-            // goverter:map Age | github.com/emp1re/goverter-test/execution/external:IntToString
+            // goverter:map Age | github.com/summit-fi/goverter/execution/external:IntToString
             Convert(source Input) Output
         }
 
@@ -22,9 +22,9 @@ input:
 error: |-
     error parsing 'goverter:map' at
         @workdir/input.go:6:5
-        func (github.com/emp1re/goverter-test/execution.Converter).Convert(source github.com/emp1re/goverter-test/execution.Input) github.com/emp1re/goverter-test/execution.Output
+        func (github.com/summit-fi/goverter/execution.Converter).Convert(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
 
-    failed to load package "github.com/emp1re/goverter-test/execution/external":
-    -: # github.com/emp1re/goverter-test/execution/external
+    failed to load package "github.com/summit-fi/goverter/execution/external":
+    -: # github.com/summit-fi/goverter/execution/external
     external/method.go:3:12: cannot use 5 (untyped int constant) as string value in return statement
     @workdir/external/method.go:3:12: cannot use 5 (untyped int constant) as string value in return statement

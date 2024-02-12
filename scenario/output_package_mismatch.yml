@@ -23,10 +23,10 @@ input:
 error: |-
     Error creating converters
         @workdir/input.go
-        github.com/emp1re/goverter-test/execution.Converter
+        github.com/summit-fi/goverter/execution.Converter
     and
         @workdir/input.go
-        github.com/emp1re/goverter-test/execution.Converter2
+        github.com/summit-fi/goverter/execution.Converter2
 
     Cannot use different packages
         pkg1

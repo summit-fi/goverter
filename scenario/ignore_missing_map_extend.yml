@@ -23,15 +23,15 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/emp1re/goverter-test/execution.Converter).Convert(source github.com/emp1re/goverter-test/execution.Input) github.com/emp1re/goverter-test/execution.Output
+        func (github.com/summit-fi/goverter/execution.Converter).Convert(source github.com/summit-fi/goverter/execution.Input) github.com/summit-fi/goverter/execution.Output
 
-    | github.com/emp1re/goverter-test/execution.Input
+    | github.com/summit-fi/goverter/execution.Input
     |
     source.???
     target.Age
     |      |
     |      | int
     |
-    | github.com/emp1re/goverter-test/execution.Output
+    | github.com/summit-fi/goverter/execution.Output
 
     Cannot match the target field with the source entry: "Age" does not exist.

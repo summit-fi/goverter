@@ -6,7 +6,7 @@ import (
 
 	"github.com/dave/jennifer/jen"
 
-	"github.com/emp1re/goverter-test/xtype"
+	"github.com/summit-fi/goverter/xtype"
 )
 
 type ParamType int

@@ -11,9 +11,9 @@ input:
 error: |-
     error parsing 'goverter:extend' at
         @workdir/input.go:5:1
-        github.com/emp1re/goverter-test/execution.Converter
+        github.com/summit-fi/goverter/execution.Converter
 
     error parsing type:
-        func github.com/emp1re/goverter-test/execution.HelloWorld(int)
+        func github.com/summit-fi/goverter/execution.HelloWorld(int)
 
     must have one or two returns

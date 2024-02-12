@@ -3,7 +3,7 @@ input:
         package pkg
 
         // goverter:converter
-        // goverter:output:package github.com/emp1re/goverter-test/execution/generated:myname
+        // goverter:output:package github.com/summit-fi/goverter/execution/generated:myname
         type Converter2 interface {
             Convert(source Input) Output
         }
@@ -20,7 +20,7 @@ success:
 
         package myname
 
-        import execution "github.com/emp1re/goverter-test/execution"
+        import execution "github.com/summit-fi/goverter/execution"
 
         type Converter2Impl struct{}
 

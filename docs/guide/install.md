@@ -13,7 +13,7 @@ This is the recommended way to use Goverter.
 1. Install the binary
 
     ```bash-vue
-    $ go install github.com/emp1re/goverter-test/cmd/goverter@{{ libVersion }}
+    $ go install github.com/summit-fi/goverter/cmd/goverter@{{ libVersion }}
     ```
 
 1. Run the binary.
@@ -30,7 +30,7 @@ path is on your `$PATH`.
 You can `go run` goverter like this:
 
 ```bash-vue
-$ go run github.com/emp1re/goverter-test/cmd/goverter@{{ libVersion }} --help
+$ go run github.com/summit-fi/goverter/cmd/goverter@{{ libVersion }} --help
 ```
 
 This method is the easiest, as you don't have to install a binary on your
@@ -55,7 +55,7 @@ invalidated sometimes.
 1. Run the binary.
 
     ```bash
-    $ go run github.com/emp1re/goverter-test/cmd/goverter --help
+    $ go run github.com/summit-fi/goverter/cmd/goverter --help
     ```
 
 This method allows you to have the goverter dependency defined inside the

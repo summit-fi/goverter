@@ -4,7 +4,7 @@
 package generated
 
 import (
-	extendexternal "github.com/emp1re/goverter-test/example/extend-external"
+	extendexternal "github.com/summit-fi/goverter/example/extend-external"
 	"strconv"
 )
 

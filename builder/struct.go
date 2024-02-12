@@ -6,8 +6,8 @@ import (
 	"strings"
 
 	"github.com/dave/jennifer/jen"
-	"github.com/emp1re/goverter-test/method"
-	"github.com/emp1re/goverter-test/xtype"
+	"github.com/summit-fi/goverter/method"
+	"github.com/summit-fi/goverter/xtype"
 )
 
 // Struct handles struct types.

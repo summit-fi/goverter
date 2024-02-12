@@ -10,7 +10,7 @@ input:
 
         // goverter:converter
         // the next line enables string converters from local package
-        // goverter:extend github.com/emp1re/goverter-test/execution/external:intToString
+        // goverter:extend github.com/summit-fi/goverter/execution/external:intToString
         type Converter interface {
             Convert(source Input) Output
         }
@@ -24,9 +24,9 @@ input:
 error: |-
     error parsing 'goverter:extend' at
         @workdir/input.go:6:1
-        github.com/emp1re/goverter-test/execution.Converter
+        github.com/summit-fi/goverter/execution.Converter
 
     error parsing type:
-        func github.com/emp1re/goverter-test/execution/external.intToString(int) string
+        func github.com/summit-fi/goverter/execution/external.intToString(int) string
 
     must be exported

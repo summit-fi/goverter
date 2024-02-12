@@ -8,11 +8,11 @@ import (
 
 	"github.com/dave/jennifer/jen"
 
-	"github.com/emp1re/goverter-test/builder"
-	"github.com/emp1re/goverter-test/config"
-	"github.com/emp1re/goverter-test/method"
-	"github.com/emp1re/goverter-test/namer"
-	"github.com/emp1re/goverter-test/xtype"
+	"github.com/summit-fi/goverter/builder"
+	"github.com/summit-fi/goverter/config"
+	"github.com/summit-fi/goverter/method"
+	"github.com/summit-fi/goverter/namer"
+	"github.com/summit-fi/goverter/xtype"
 )
 
 type generatedMethod struct {

@@ -16,9 +16,9 @@ input:
         }
 error: |-
     Error while creating converter method:
-        func (github.com/emp1re/goverter-test/execution.Converter).AToB(github.com/emp1re/goverter-test/execution.A) github.com/emp1re/goverter-test/execution.B
+        func (github.com/summit-fi/goverter/execution.Converter).AToB(github.com/summit-fi/goverter/execution.A) github.com/summit-fi/goverter/execution.B
 
-    | github.com/emp1re/goverter-test/execution.A
+    | github.com/summit-fi/goverter/execution.A
     |
     |      | int
     |      |
@@ -27,7 +27,7 @@ error: |-
     |      |
     |      | error
     |
-    | github.com/emp1re/goverter-test/execution.B
+    | github.com/summit-fi/goverter/execution.B
 
     TypeMismatch: Cannot convert int to error
 
