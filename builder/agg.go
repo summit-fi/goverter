@@ -59,6 +59,7 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 
 	// Initialize an xtype.Type for the target
 	var tFType xtype.Type
+
 	// Iterate over the fields of the target struct type
 	for i := 0; i < target.ListInner.StructType.NumFields(); i++ {
 		// If the field name matches "mark2", set the xtype.Type to the field information
@@ -67,7 +68,50 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 				String: target.ListInner.StructType.Field(i).Name(),
 				T:      target.ListInner.StructType.Field(i).Type(),
 			}
+
 		}
+	}
+	// Declare a variable "empty" of type string. This variable will be used to hold
+	// the "empty" value for the target field type.
+	var empty string
+	switch tFType.T.String() {
+	case "[]string":
+		empty = "\"\""
+	case "[]int":
+		empty = "0"
+	case "[]int8":
+		empty = "0"
+	case "[]int16":
+		empty = "0"
+	case "[]int32":
+		empty = "0"
+	case "[]int64":
+		empty = "0"
+	case "[]uint":
+		empty = "0"
+	case "[]uint8":
+		empty = "0"
+	case "[]uint16":
+		empty = "0"
+	case "[]uint32":
+		empty = "0"
+	case "[]uint64":
+		empty = "0"
+	case "[]float":
+		empty = "0.0"
+	case "[]float32":
+		empty = "0.0"
+	case "[]float64":
+		empty = "0.0"
+	case "[]complex64":
+		empty = "0.0"
+	case "[]complex128":
+		empty = "0.0"
+	case "[]bool":
+		empty = "false"
+	case "[]rune":
+		empty = "0"
+
 	}
 
 	// blockIter is a slice of jen.Code. It represents a block of code that is generated dynamically.
@@ -76,16 +120,16 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 	blockIter := []jen.Code{
 		// jen.Id(target.ListInner.String).ValuesFunc creates a new instance of the target struct type.
 		// The function passed to ValuesFunc is used to populate the fields of the new instance.
-		jen.Id(target.ListInner.String).ValuesFunc(func(g *jen.Group) {
+		jen.Id(target.ListInner.String).BlockFunc(func(g *jen.Group) {
 			// This loop iterates over the fields of the source struct type.
 			for i := 0; i < source.ListInner.StructType.NumFields(); i++ {
 				// If the name of the current field matches mark2, a new slice of strings is created and assigned to the field.
 				if source.ListInner.StructType.Field(i).Name() == mark2 {
-					g.Id(source.ListInner.StructType.Field(i).Name()).Op(":").Index().String().Values()
+					g.Id(source.ListInner.StructType.Field(i).Name()).Op(":").Id(tFType.T.String()).Values().Op(",")
 					continue
 				}
 				// If the name of the current field does not match mark2, the value of the field in the source struct is assigned to the corresponding field in the target struct.
-				g.Id(target.ListInner.StructType.Field(i).Name()).Op(":").Id("v").Dot(source.ListInner.StructType.Field(i).Name())
+				g.Id(target.ListInner.StructType.Field(i).Name()).Op(":").Id("v").Dot(source.ListInner.StructType.Field(i).Name()).Op(",")
 			}
 		}),
 	}
@@ -116,6 +160,8 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 			// The target type is represented by the blockIter slice of jen.Code.
 			jen.Id("m").Index(jen.Id("v").Dot(sFType.String)).Op("=").Add(blockIter...),
 		),
+		jen.If(jen.Id("v").Dot(tFType.String)).Op("==").Id(empty).Block(
+			jen.Continue()),
 		// This line retrieves the object from the map "m" using the key "v.sFType" and assigns it to the variable "obj".
 		jen.Id("obj").Op(":=").Id("m").Index(jen.Id("v").Dot(sFType.String)),
 		// This line appends the string "v.tFType.String" to the slice "obj.tFType.String".
