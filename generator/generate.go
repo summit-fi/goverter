@@ -52,16 +52,13 @@ func Generate(converters []*config.Converter, c Config) (map[string][]byte, erro
 func generateConverter(converter *config.Converter, c Config, f *jen.File) error {
 	gen := setupGenerator(converter)
 	cv := converter.Methods
-	fmt.Println(cv)
 	for _, method := range cv {
 
 		for _, m := range method.RawFieldSettings {
-
 			split := strings.Split(m, " ")
 			if len(split) < 3 {
 				return fmt.Errorf("Invalid settings for goverter:agg")
 			}
-
 			if split[0] == "agg" {
 				if len(converter.Comments) > 0 {
 					f.Comment(strings.Join(converter.Comments, "\n"))
