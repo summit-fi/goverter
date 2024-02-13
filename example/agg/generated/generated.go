@@ -1,6 +1,8 @@
 package generated
 
-import agg "github.com/summit-fi/goverter/example/agg"
+import (
+	agg "github.com/summit-fi/goverter/example/agg"
+)
 
 type ConverterImpl struct{}
 
@@ -17,12 +19,13 @@ func (c *ConverterImpl) Convert(source agg.Input1) agg.Output1 {
 	mainOutput1.Address = stringList
 	return mainOutput1
 }
+
 func (c *ConverterImpl) ConvertAgg(source []agg.Input1) []agg.Output1 {
 	var result []agg.Output1
-	m := map[string]agg.Output1{}
+	m := map[int]agg.Output1{}
 	for _, v := range source {
-		if _, ok := m[v.Address]; !ok {
-			m[v.Address] = agg.Output1{
+		if _, ok := m[v.ID]; !ok {
+			m[v.ID] = agg.Output1{
 				ID:      v.ID,
 				Name:    v.Name,
 				Root:    v.Root,
@@ -36,16 +39,16 @@ func (c *ConverterImpl) ConvertAgg(source []agg.Input1) []agg.Output1 {
 		if v.Address == "" {
 			continue
 		}
-		obj := m[v.Address]
+		obj := m[v.ID]
 		obj.Address = append(obj.Address, v.Address)
-		m[v.Address] = obj
+		m[v.ID] = obj
 	}
 	for _, v := range source {
-		found, ok := m[v.Address]
+		found, ok := m[v.ID]
 		if !ok {
 			continue
 		}
-		delete(m, v.Address)
+		delete(m, v.ID)
 		result = append(result, found)
 	}
 	return result

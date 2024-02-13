@@ -24,22 +24,22 @@ func (*Agg) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sour
 
 	// Split the raw field settings from the context by space
 	// This is done to extract individual settings from a single string.
-	if len(ctx.Conf.RawFieldSettings) < 1 {
-		return nil, nil, &Error{
-			Cause: "Invalid settings for goverter:agg",
-		}
-	}
+	//if len(ctx.Conf.RawFieldSettings) < 1 {
+	//	return nil, nil, &Error{
+	//		Cause: "Invalid settings for goverter:agg",
+	//	}
+	//}
 	split := strings.Split(ctx.Conf.RawFieldSettings[0], " ")
 
 	// Check if the split result has less than 3 elements.
 	// If it does, return nil for all return values.
 	// This is because we expect at least 3 elements from the split operation.
 	// The first element is ignored, and the second and third elements are used.
-	if len(split) < 3 {
-		return nil, nil, &Error{
-			Cause: "Invalid settings for goverter:agg",
-		}
-	}
+	//if len(split) < 3 {
+	//	return nil, nil, &Error{
+	//		Cause: "Invalid settings for goverter:agg",
+	//	}
+	//}
 
 	// Extract the second element from the split result and assign it to the variable "mark".
 	// This represents the first relevant setting from the raw field settings.

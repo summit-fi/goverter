@@ -4,20 +4,19 @@ type Input1 struct {
 	ID      int
 	Name    string
 	Root    string
-	Admin   bool
+	Admin   string
 	Color   string
-	Tax     rune
+	Tax     string
 	Phone   string
 	Address string
 }
-
 type Output1 struct {
 	ID      int
 	Name    string
 	Root    string
-	Admin   bool
+	Admin   string
 	Color   string
-	Tax     rune
+	Tax     string
 	Phone   string
 	Address []string
 }
