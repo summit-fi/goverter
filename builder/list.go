@@ -27,7 +27,7 @@ func (*List) Build(gen Generator, ctx *MethodContext, sourceID *xtype.JenID, sou
 		blockIter := []jen.Code{
 			// jen.Id(target.ListInner.String).ValuesFunc creates a new instance of the target struct type.
 			// The function passed to ValuesFunc is used to populate the fields of the new instance.
-			jen.Id(target.ListInner.String).BlockFunc(func(g *jen.Group) {
+			jen.Add(target.ListInner.TypeAsJen()).BlockFunc(func(g *jen.Group) {
 				// This loop iterates over the fields of the source struct type.
 				for i := 0; i < source.ListInner.StructType.NumFields(); i++ {
 					// If the name of the current field matches mark2, a new slice of strings is created and assigned to the field.
