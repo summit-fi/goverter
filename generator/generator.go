@@ -47,6 +47,7 @@ func (g *generator) buildMethods(f *jen.File) error {
 		err := g.buildMethod(genMethod, builder.NoWrap)
 		if err != nil {
 			err = err.Lift(&builder.Path{
+
 				SourceID:   "source",
 				TargetID:   "target",
 				SourceType: genMethod.Source.String,
@@ -82,7 +83,6 @@ func (g *generator) buildMethod(genMethod *generatedMethod, errWrapper builder.E
 	sourceID := jen.Id("source")
 	source := genMethod.Source
 	target := genMethod.Target
-
 	returns := []jen.Code{target.TypeAsJen()}
 	if genMethod.ReturnError {
 		returns = append(returns, jen.Id("error"))
@@ -117,6 +117,7 @@ func (g *generator) buildMethod(genMethod *generatedMethod, errWrapper builder.E
 		if err != nil {
 			return err
 		}
+
 		ret := []jen.Code{newID.Code}
 		if genMethod.ReturnError {
 			ret = append(ret, jen.Nil())

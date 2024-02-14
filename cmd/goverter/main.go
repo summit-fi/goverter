@@ -4,9 +4,8 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/summit-fi/goverter"
 	"github.com/summit-fi/goverter/cli"
-
-	goverter "github.com/summit-fi/goverter"
 )
 
 func main() {
@@ -16,7 +15,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err = goverter.GenerateConverters(cfg); err != nil {
+	if err := goverter.GenerateConverters(cfg); err != nil {
 		_, _ = fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}

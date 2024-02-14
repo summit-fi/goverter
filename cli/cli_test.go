@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/jmattheis/goverter"
 	"github.com/stretchr/testify/require"
+	"github.com/summit-fi/goverter"
 	"github.com/summit-fi/goverter/cli"
 	"github.com/summit-fi/goverter/config"
 )

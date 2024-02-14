@@ -2,6 +2,7 @@ package builder
 
 import (
 	"go/types"
+	"strings"
 
 	"github.com/dave/jennifer/jen"
 	"github.com/summit-fi/goverter/config"
@@ -65,7 +66,41 @@ func (ctx *MethodContext) MarkSeen(source *xtype.Type) {
 	typeString := source.NamedType.String()
 	ctx.SeenNamed[typeString] = struct{}{}
 }
+func (ctx *MethodContext) HasAggregation(conf *config.Method, sourse *xtype.Type, target *xtype.Type) (isAggregation bool, place *xtype.Type, targetSlice *xtype.Type) {
+	if len(conf.RawFieldSettings) != 0 {
+		split := strings.Split(conf.RawFieldSettings[0], " ")
+		switch split[0] {
+		case "agg":
+			isAggregation = true
+			for i := 0; i < sourse.ListInner.StructType.NumFields(); i++ {
+				// If the field name matches "name of place of aggregation", set the xtype.Type to the field information
+				if split[1] == target.ListInner.StructType.Field(i).Name() {
+					place = &xtype.Type{
+						String: target.ListInner.StructType.Field(i).Name(),
+						T:      target.ListInner.StructType.Field(i).Type(),
+					}
+				}
+			}
+			for i := 0; i < target.ListInner.StructType.NumFields(); i++ {
+				// If the field name matches "[]", set the xtype.Type to the field information
+				if split[2] == target.ListInner.StructType.Field(i).Name() {
+					targetSlice = &xtype.Type{
+						String: target.ListInner.StructType.Field(i).Name(),
+						T:      target.ListInner.StructType.Field(i).Type(),
+					}
+				}
+			}
+			return isAggregation, place, targetSlice
+		default:
+			isAggregation = false
+			place = nil
+			targetSlice = nil
+			return isAggregation, place, targetSlice
+		}
+	}
 
+	return isAggregation, place, targetSlice
+}
 func (ctx *MethodContext) SetErrorTargetVar(m *jen.Statement) {
 	if ctx.TargetVar == nil {
 		ctx.TargetVar = m
