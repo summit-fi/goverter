@@ -147,7 +147,7 @@ func parseMethodAgg(remaining string) (source, target, custom string, err error)
 	fields := strings.Fields(parts[0])
 	switch len(fields) {
 	case 1:
-		target = fields[0]
+		err = fmt.Errorf("missing slice for data aggregation or there is no field for which aggregation will take place")
 	case 2:
 		source = fields[0]
 		target = fields[1]
@@ -158,7 +158,7 @@ func parseMethodAgg(remaining string) (source, target, custom string, err error)
 		err = fmt.Errorf("too many fields expected at most 2 fields got %d: %s", len(fields), remaining)
 	}
 	if err == nil && strings.ContainsRune(target, '.') {
-		err = fmt.Errorf("the mapping target %q must be a field name but was a path.\nDots \".\" are not allowed.", target)
+		err = fmt.Errorf("the aggregation target %q must be a field name but was a path.\nDots \".\" are not allowed.", target)
 	}
 
 	return source, target, custom, err
