@@ -117,6 +117,7 @@ func (g *generator) buildMethod(genMethod *generatedMethod, errWrapper builder.E
 		if err != nil {
 			return err
 		}
+
 		ret := []jen.Code{newID.Code}
 		if genMethod.ReturnError {
 			ret = append(ret, jen.Nil())
