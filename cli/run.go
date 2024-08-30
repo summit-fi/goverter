@@ -39,6 +39,7 @@ func Run(args []string, opts RunOpts) {
 	case *Version:
 		b, ok := debug.ReadBuildInfo()
 		if ok {
+			fmt.Println("v1.5.1-summit")
 			fmt.Println(b)
 		}
 	default:
